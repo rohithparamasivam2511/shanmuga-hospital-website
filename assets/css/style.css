@@ -1643,29 +1643,62 @@ footer#site-footer {
 /* Mobile (768px and below) */
 @media (max-width: 768px) {
     :root {
-        --section-gap: 56px;
+        --section-gap: 48px;
     }
 
-    /* Top Emergency Bar */
+    /* ── Compact & Sleek Top Emergency Ribbon on Mobile ── */
+    .emergency-top {
+        font-size: 0.76rem;
+    }
+
     .emergency-inner {
         justify-content: center;
         text-align: center;
-        font-size: 0.8rem;
+        padding: 6px 12px;
+        gap: 6px 10px;
     }
 
-    /* Header & Mobile Drawer */
+    .emergency-left {
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .emergency-right {
+        display: none; /* Hide secondary location/OPD on mobile top bar for clean single-line header */
+    }
+
+    .emergency-tag {
+        padding: 2px 8px;
+        font-size: 0.72rem;
+    }
+
+    .emergency-num {
+        font-size: 0.82rem;
+    }
+
+    /* ── Header & Mobile Drawer ── */
     header#site-header {
-        padding: 12px 0;
+        padding: 10px 0;
     }
 
     .logo img {
-        height: 44px;
+        height: 42px;
     }
 
     .header-appt-btn,
-    .btn-icon-header,
-    .lang-switcher-desktop {
+    .btn-icon-header {
         display: none;
+    }
+
+    .lang-switcher-desktop {
+        display: inline-flex;
+        padding: 2px;
+    }
+
+    .lang-switcher-desktop .lang-btn {
+        padding: 5px 10px;
+        font-size: 0.78rem;
     }
 
     .mobile-lang-box {
@@ -1673,7 +1706,12 @@ footer#site-footer {
     }
 
     .menu-toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        padding: 0;
     }
 
     #navbar {
@@ -1685,8 +1723,14 @@ footer#site-footer {
         background: #FFFFFF;
         border-top: 1px solid var(--border);
         box-shadow: var(--shadow-lg);
-        padding: 18px 24px;
+        padding: 16px 20px;
         z-index: 1000;
+        animation: navSlideDown 0.25s ease;
+    }
+
+    @keyframes navSlideDown {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
     }
 
     #navbar.active {
@@ -1696,96 +1740,201 @@ footer#site-footer {
     #nav-links {
         flex-direction: column;
         align-items: stretch;
-        gap: 8px;
+        gap: 6px;
     }
 
     #nav-links li a {
-        padding: 14px 18px;
-        font-size: 1.05rem;
+        padding: 13px 16px;
+        font-size: 1rem;
         flex-direction: row;
         justify-content: space-between;
         border-bottom: 1px solid var(--border);
+        min-height: 48px;
+        align-items: center;
     }
 
     #nav-links li:last-child a {
         border-bottom: none;
     }
 
-    /* Hero Mobile */
+    /* ── Hero Mobile Optimization ── */
     .hero {
-        padding: 44px 0;
+        padding: 28px 0 36px;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .hero-tagline {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+        margin-bottom: 16px;
     }
 
     .hero-content h2 {
-        font-size: 2.1rem;
+        font-size: 1.85rem;
+        line-height: 1.2;
+        margin-bottom: 14px;
+    }
+
+    .hero-sub {
+        font-size: 0.94rem;
+        line-height: 1.65;
+        margin-bottom: 24px;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        min-height: 48px;
+        font-size: 0.96rem;
+        padding: 13px 20px;
+    }
+
+    .hero-trust {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 14px;
+        padding-top: 18px;
+    }
+
+    .trust-item {
+        font-size: 0.84rem;
     }
 
     .hero-image-wrap img {
-        height: 280px;
+        height: 240px;
+        border-radius: var(--radius-md);
     }
 
     .hero-floating-badge {
-        bottom: -14px;
-        left: 14px;
-        padding: 12px 16px;
+        bottom: -12px;
+        left: 12px;
+        padding: 10px 14px;
+        gap: 10px;
     }
 
-    /* Quick Cards Mobile */
+    .floating-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .floating-text h5 {
+        font-size: 0.88rem;
+    }
+
+    .floating-text p {
+        font-size: 0.74rem;
+    }
+
+    /* ── Quick Cards Mobile ── */
     .quick-services {
-        margin-top: 24px;
+        margin-top: 18px;
     }
 
     .quick-services-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 
-    /* Stats Mobile */
+    .quick-card {
+        padding: 18px 16px;
+        gap: 14px;
+    }
+
+    /* ── Stats Mobile ── */
+    .stats-section {
+        padding: 36px 0;
+    }
+
     .stats-inner {
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px 12px;
+        gap: 20px 12px;
     }
 
     .stat-item {
         border-right: none;
+        padding: 0 8px;
     }
 
     .stat-item h4 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
-    /* About Mobile */
+    .stat-item p {
+        font-size: 0.9rem;
+    }
+
+    /* ── About Mobile ── */
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 36px;
+        gap: 30px;
+    }
+
+    .about-text h4 {
+        font-size: 1.35rem;
+    }
+
+    .about-text p {
+        font-size: 0.94rem;
     }
 
     .about-checklist {
         grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 20px 0 24px;
     }
 
-    /* Doctors Mobile */
+    .about-feature-card {
+        padding: 18px 16px;
+    }
+
+    /* ── Doctors Mobile ── */
     .doctors-grid {
         grid-template-columns: 1fr;
         max-width: 400px;
         margin: 0 auto;
+        gap: 20px;
     }
 
     .doctor-img-wrap {
-        height: 280px;
+        height: 250px;
     }
 
-    /* Specialties & Facilities Mobile */
+    .doctor-info {
+        padding: 20px 18px;
+    }
+
+    /* ── Specialties & Facilities Mobile ── */
     .card-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
     }
 
-    .facilities-grid {
-        grid-template-columns: 1fr;
+    .specialty-card,
+    .facility-card {
+        padding: 22px 18px;
     }
 
-    /* Form Mobile */
+    /* ── Booking Form Mobile ── */
+    .booking-section-wrap {
+        padding: 48px 0;
+    }
+
+    .booking-content-side h3 {
+        font-size: 1.85rem;
+    }
+
     .booking-form-card {
-        padding: 26px 20px;
+        padding: 22px 16px;
     }
 
     .form-grid-2 {
@@ -1793,33 +1942,61 @@ footer#site-footer {
         gap: 0;
     }
 
-    /* Footer Mobile */
+    .form-input-box input,
+    .form-input-box select {
+        min-height: 48px;
+    }
+
+    /* ── Contact Section Mobile ── */
+    .contact-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .contact-card-item {
+        padding: 16px 14px;
+    }
+
+    .map-embed-box {
+        min-height: 280px;
+    }
+
+    .map-embed-box iframe {
+        min-height: 280px;
+    }
+
+    /* ── Footer Mobile ── */
+    footer#site-footer {
+        padding-top: 50px;
+    }
+
     .footer-top-grid {
         grid-template-columns: 1fr;
-        gap: 34px;
+        gap: 30px;
+        padding-bottom: 36px;
     }
 
     .footer-bottom-inner {
         flex-direction: column;
         text-align: center;
-        gap: 10px;
+        gap: 8px;
     }
 
-    /* Mobile Sticky Bar Display */
+    /* ── Mobile Sticky Bottom Action Bar ── */
     .mobile-bottom-bar {
         display: flex;
     }
 
-    /* Reposition Floating WhatsApp above bottom bar */
+    /* Floating WhatsApp positioned above bottom action bar */
     .whatsapp-float {
-        bottom: 76px;
-        right: 18px;
-        width: 50px;
-        height: 50px;
-        font-size: 1.6rem;
+        bottom: 74px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.55rem;
     }
 
     body {
-        padding-bottom: 64px;
+        padding-bottom: 60px;
     }
 }
