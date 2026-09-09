@@ -7,7 +7,7 @@
     <title>Kavin Medical Center - Erode | Multispecialty & Super Specialty Hospital</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="கவின் மருத்துவ மையம் - ஈரோடு. Kavin Medical Center is a premier multispecialty hospital in Erode, Tamil Nadu specializing in Plastic & Cosmetic Surgery, Burn Care, Hand Trauma, General & Laparoscopic Surgery, and 24/7 Emergency Services.">
+    <meta name="description" content="Kavin Medical Center is a premier multispecialty hospital in Erode, Tamil Nadu specializing in Plastic & Cosmetic Surgery, Burn Care, Hand Trauma, General & Laparoscopic Surgery, and 24/7 Emergency Services.">
     <meta name="keywords" content="Kavin Medical Center Erode, Kavin Hospital, Dr G I Nambi Erode, Plastic Surgery Erode, Burn Care Hospital Tamil Nadu, Hand Surgery, Multispecialty Hospital Perundurai Road">
 
     <!-- Open Graph Tags -->
@@ -69,16 +69,16 @@
     <div class="emergency-top">
         <div class="container-wide emergency-inner">
             <div class="emergency-left">
-                <span class="emergency-tag"><i class="fas fa-heartbeat"></i> 24/7 Emergency</span>
-                <span>அவசர உதவி அழைப்பு:</span>
+                <span class="emergency-tag"><i class="fas fa-heartbeat"></i> <span data-i18n="emergency_ribbon">24/7 Emergency & Trauma</span></span>
+                <span data-i18n="emergency_call_label">Emergency Hotline:</span>
                 <a href="tel:108" class="emergency-num"><i class="fas fa-ambulance"></i> 108</a>
                 <span class="emergency-sep">|</span>
                 <a href="tel:+916374204706" class="emergency-num"><i class="fas fa-phone-alt"></i> +91 63742 04706</a>
             </div>
             <div class="emergency-right">
-                <span><i class="fas fa-clock"></i> OPD: Mon–Sun 8 AM – 7 PM</span>
+                <span><i class="fas fa-clock"></i> <span data-i18n="emergency_opd">OPD: Mon–Sun 8 AM – 7 PM</span></span>
                 <span class="emergency-sep">|</span>
-                <span><i class="fas fa-map-marker-alt"></i> Gandhi Nagar, Erode</span>
+                <span><i class="fas fa-map-marker-alt"></i> <span data-i18n="emergency_location">Gandhi Nagar, Perundurai Road, Erode</span></span>
             </div>
         </div>
     </div>
@@ -91,17 +91,32 @@
             </a>
 
             <nav id="navbar" aria-label="Primary Navigation">
+                <!-- Mobile Language Switcher inside Drawer -->
+                <div class="mobile-lang-box">
+                    <span><i class="fas fa-language"></i> Language / மொழி:</span>
+                    <div class="lang-switcher">
+                        <button class="lang-btn active" data-lang="en">English</button>
+                        <button class="lang-btn" data-lang="ta">தமிழ்</button>
+                    </div>
+                </div>
+
                 <ul id="nav-links">
-                    <li><a href="#home">Home <span class="nav-ta">முகப்பு</span></a></li>
-                    <li><a href="#about">About <span class="nav-ta">எங்களை பற்றி</span></a></li>
-                    <li><a href="#specialties">Specialties <span class="nav-ta">துறைகள்</span></a></li>
-                    <li><a href="#doctors">Doctors <span class="nav-ta">மருத்துவர்கள்</span></a></li>
-                    <li><a href="#facilities">Facilities <span class="nav-ta">வசதிகள்</span></a></li>
-                    <li><a href="#contact">Contact <span class="nav-ta">தொடர்புக்கு</span></a></li>
+                    <li><a href="#home"><span data-i18n="nav_home">Home</span></a></li>
+                    <li><a href="#about"><span data-i18n="nav_about">About Us</span></a></li>
+                    <li><a href="#specialties"><span data-i18n="nav_specialties">Specialties</span></a></li>
+                    <li><a href="#doctors"><span data-i18n="nav_doctors">Doctors</span></a></li>
+                    <li><a href="#facilities"><span data-i18n="nav_facilities">Facilities</span></a></li>
+                    <li><a href="#contact"><span data-i18n="nav_contact">Contact</span></a></li>
                 </ul>
             </nav>
 
             <div class="header-actions">
+                <!-- Desktop Language Switcher Toggle -->
+                <div class="lang-switcher lang-switcher-desktop" role="group" aria-label="Language Selector">
+                    <button class="lang-btn active" data-lang="en" aria-label="English Language">EN</button>
+                    <button class="lang-btn" data-lang="ta" aria-label="Tamil Language">தமிழ்</button>
+                </div>
+
                 <a href="https://wa.me/916374204706?text=Hello%20Kavin%20Medical%20Center%2C%20I%20would%20like%20to%20inquire%20about%20an%20appointment" class="btn-icon-header btn-whatsapp-header" aria-label="Chat with Kavin Medical Center on WhatsApp" target="_blank" rel="noopener">
                     <i class="fab fa-whatsapp"></i>
                 </a>
@@ -110,7 +125,7 @@
                 </a>
                 <a href="#appointment" class="header-appt-btn">
                     <i class="far fa-calendar-alt"></i>
-                    <span>Book Appointment</span>
+                    <span data-i18n="nav_book_btn">Book Appointment</span>
                 </a>
                 <button class="menu-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
                     <i class="fas fa-bars"></i>
@@ -125,39 +140,39 @@
             <div class="container hero-inner">
                 <div class="hero-content">
                     <span class="hero-tagline">
-                        <i class="fas fa-certificate"></i> ஈரோட்டின் முதன்மை பல்நோக்கு & சிறப்பு அறுவை சிகிச்சை மையம்
+                        <i class="fas fa-certificate"></i> <span data-i18n="hero_tagline">Erode's Premier Multispecialty & Advanced Surgical Center</span>
                     </span>
                     <h2>
-                        உங்கள் ஆரோக்கியமே<br>
-                        <span class="text-accent">எங்கள் மேலான லட்சியம்.</span>
+                        <span data-i18n="hero_h2_main">Your Health & Wellbeing,</span><br>
+                        <span class="text-accent" data-i18n="hero_h2_accent">Our Utmost Priority.</span>
                     </h2>
-                    <p class="hero-sub">
+                    <p class="hero-sub" data-i18n="hero_sub">
                         Welcome to <strong>Kavin Medical Center, Erode</strong> — A center of medical distinction offering super-specialized Plastic & Cosmetic Surgery, Dedicated Burn Care, Hand Trauma, General & Laparoscopic Care, and 24/7 Critical Emergency response.
                     </p>
                     <div class="hero-btns">
                         <a href="#appointment" class="btn btn-primary">
-                            <i class="far fa-calendar-check"></i> முன்பதிவு செய்ய | Book Appointment
+                            <i class="far fa-calendar-check"></i> <span data-i18n="hero_btn_book">Book Appointment</span>
                         </a>
                         <a href="tel:+916374204706" class="btn btn-outline-navy">
-                            <i class="fas fa-phone-alt"></i> அழைக்க | +91 63742 04706
+                            <i class="fas fa-phone-alt"></i> <span data-i18n="hero_btn_call">Call Us | +91 63742 04706</span>
                         </a>
                     </div>
                     <div class="hero-trust">
                         <div class="trust-item">
                             <i class="fas fa-award"></i>
-                            <span>Super-Specialty Care</span>
+                            <span data-i18n="trust_1">Super-Specialty Care</span>
                         </div>
                         <div class="trust-item">
                             <i class="fas fa-user-md"></i>
-                            <span>25+ Yrs Expertise</span>
+                            <span data-i18n="trust_2">25+ Yrs Expertise</span>
                         </div>
                         <div class="trust-item">
                             <i class="fas fa-star"></i>
-                            <span>4.9 / 5 Rating</span>
+                            <span data-i18n="trust_3">4.9 / 5 Rating</span>
                         </div>
                         <div class="trust-item">
                             <i class="fas fa-ambulance"></i>
-                            <span>24/7 Trauma Unit</span>
+                            <span data-i18n="trust_4">24/7 Trauma Unit</span>
                         </div>
                     </div>
                 </div>
@@ -169,8 +184,8 @@
                             <i class="fas fa-ambulance"></i>
                         </div>
                         <div class="floating-text">
-                            <h5>24/7 Emergency Bay</h5>
-                            <p>Ambulance & Trauma Support</p>
+                            <h5 data-i18n="badge_amb_title">24/7 Emergency Bay</h5>
+                            <p data-i18n="badge_amb_sub">Ambulance & Trauma Support</p>
                         </div>
                     </div>
                 </div>
@@ -186,8 +201,8 @@
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         <div class="quick-card-info">
-                            <h4>Book Appointment</h4>
-                            <p>முன்பதிவு செய்ய கிளிக் செய்யவும்</p>
+                            <h4 data-i18n="quick_1_title">Book Appointment</h4>
+                            <p data-i18n="quick_1_sub">Schedule your consultation online</p>
                         </div>
                     </a>
                     <a href="tel:+916374204706" class="quick-card">
@@ -195,8 +210,8 @@
                             <i class="fas fa-ambulance"></i>
                         </div>
                         <div class="quick-card-info">
-                            <h4>24/7 Emergency Care</h4>
-                            <p>அவசர கால உதவி மையம்</p>
+                            <h4 data-i18n="quick_2_title">24/7 Emergency Care</h4>
+                            <p data-i18n="quick_2_sub">Immediate doctor assistance</p>
                         </div>
                     </a>
                     <a href="#doctors" class="quick-card">
@@ -204,8 +219,8 @@
                             <i class="fas fa-user-md"></i>
                         </div>
                         <div class="quick-card-info">
-                            <h4>Our Specialist Doctors</h4>
-                            <p>மருத்துவ நிபுணர்கள் விபரம்</p>
+                            <h4 data-i18n="quick_3_title">Our Specialist Doctors</h4>
+                            <p data-i18n="quick_3_sub">View consultant profiles</p>
                         </div>
                     </a>
                     <a href="#facilities" class="quick-card">
@@ -213,8 +228,8 @@
                             <i class="fas fa-microscope"></i>
                         </div>
                         <div class="quick-card-info">
-                            <h4>Lab & Diagnostics</h4>
-                            <p>டிஜிட்டல் எக்ஸ்ரே & ஆய்வகம்</p>
+                            <h4 data-i18n="quick_4_title">Lab & Diagnostics</h4>
+                            <p data-i18n="quick_4_sub">Digital X-Ray & pathology</p>
                         </div>
                     </a>
                 </div>
@@ -226,19 +241,19 @@
             <div class="container stats-inner">
                 <div class="stat-item">
                     <h4>25+</h4>
-                    <p>Years Surgical Mastery<span>மருத்துவ அனுபவம்</span></p>
+                    <p><span data-i18n="stat_1_title">Years Surgical Mastery</span><span data-i18n="stat_1_sub">Clinical Excellence</span></p>
                 </div>
                 <div class="stat-item">
                     <h4>15k+</h4>
-                    <p>Successful Recoveries<span>குணமடைந்த நோயாளிகள்</span></p>
+                    <p><span data-i18n="stat_2_title">Happy Recoveries</span><span data-i18n="stat_2_sub">Treated Patients</span></p>
                 </div>
                 <div class="stat-item">
                     <h4>8+</h4>
-                    <p>Specialty Departments<span>சிறப்பு மருத்துவப் பிரிவுகள்</span></p>
+                    <p><span data-i18n="stat_3_title">Specialty Departments</span><span data-i18n="stat_3_sub">Modern Disciplines</span></p>
                 </div>
                 <div class="stat-item">
                     <h4>24/7</h4>
-                    <p>Emergency & ICU<span>அவசர தீவிர சிகிச்சை</span></p>
+                    <p><span data-i18n="stat_4_title">Emergency & ICU</span><span data-i18n="stat_4_sub">Round-the-clock Care</span></p>
                 </div>
             </div>
         </section>
@@ -248,24 +263,24 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-text">
-                        <span class="section-badge">எங்களை பற்றி | About Us</span>
-                        <h4>A Beacon of Advanced Healthcare & Super-Specialty Surgery in Erode</h4>
-                        <p>
-                            <strong>Kavin Medical Center</strong> is an advanced multispecialty healthcare landmark situated conveniently on Perundurai Road in Gandhi Nagar, Erode.
+                        <span class="section-badge" data-i18n="about_badge">About Kavin Medical Center</span>
+                        <h4 data-i18n="about_title">A Beacon of Advanced Healthcare & Super-Specialty Surgery in Erode</h4>
+                        <p data-i18n="about_p1">
+                            Kavin Medical Center is an advanced multispecialty healthcare landmark situated conveniently on Perundurai Road in Gandhi Nagar, Erode.
                         </p>
-                        <p>
-                            Headed by renowned Medical Director <strong>Dr. G. I. Nambi (M.S., M.Ch.)</strong>, our hospital is widely acclaimed across Western Tamil Nadu for complex reconstructive plastic surgery, dedicated acute burn rehabilitation, microvascular hand trauma surgery, laparoscopic operations, diabetic foot salvage, and comprehensive round-the-clock emergency medical response.
+                        <p data-i18n="about_p2">
+                            Headed by renowned Medical Director Dr. G. I. Nambi (M.S., M.Ch.), our hospital is widely acclaimed across Western Tamil Nadu for complex reconstructive plastic surgery, dedicated acute burn rehabilitation, microvascular hand trauma surgery, laparoscopic operations, diabetic foot salvage, and comprehensive round-the-clock emergency medical response.
                         </p>
                         <ul class="about-checklist">
-                            <li><i class="fas fa-check-circle"></i> Premier Reconstructive & Burn Care Center</li>
-                            <li><i class="fas fa-check-circle"></i> Advanced Modular Laminar Flow OTs</li>
-                            <li><i class="fas fa-check-circle"></i> High-Dependency ICU & Critical Trauma Team</li>
-                            <li><i class="fas fa-check-circle"></i> Dedicated Diabetic Foot Ulcer Salvage Clinic</li>
-                            <li><i class="fas fa-check-circle"></i> 24/7 In-House Pharmacy & Diagnostics</li>
-                            <li><i class="fas fa-check-circle"></i> Fluent bilingual medical care (Tamil & English)</li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="about_check_1">Premier Reconstructive & Burn Care Center</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="about_check_2">Advanced Modular Laminar Flow OTs</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="about_check_3">High-Dependency ICU & Critical Trauma Team</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="about_check_4">Dedicated Diabetic Foot Ulcer Salvage Clinic</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="about_check_5">24/7 In-House Pharmacy & Diagnostics</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span data-i18n="about_check_6">Compassionate bilingual patient care</span></li>
                         </ul>
                         <a href="#appointment" class="btn btn-primary">
-                            <i class="far fa-calendar-alt"></i> Meet Our Doctors
+                            <i class="far fa-calendar-alt"></i> <span data-i18n="about_btn">Meet Our Specialists</span>
                         </a>
                     </div>
 
@@ -275,8 +290,8 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
-                                <h5>Strategic Location in Erode</h5>
-                                <p>68, Gandhi Nagar, Erode to Perundurai Main Road, Erode — 638011 (Easy highway accessibility).</p>
+                                <h5 data-i18n="about_card1_title">Strategic Location in Erode</h5>
+                                <p data-i18n="about_card1_p">68, Gandhi Nagar, Erode to Perundurai Main Road, Erode — 638011 (Easy highway accessibility).</p>
                             </div>
                         </div>
 
@@ -285,8 +300,8 @@
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div>
-                                <h5>OPD & Emergency Timings</h5>
-                                <p>Outpatient Consultations: Mon – Sun: 8:00 AM – 7:00 PM<br><strong style="color:var(--emergency);">Emergency & Trauma: 24 Hours / 7 Days Open</strong></p>
+                                <h5 data-i18n="about_card2_title">OPD & Emergency Timings</h5>
+                                <p data-i18n="about_card2_p">Outpatient Consultations: Mon – Sun: 8:00 AM – 7:00 PM<br><strong style="color:var(--emergency);">Emergency: 24 Hours / 7 Days Open</strong></p>
                             </div>
                         </div>
 
@@ -295,8 +310,8 @@
                                 <i class="fas fa-star" style="color:#F59E0B;"></i>
                             </div>
                             <div>
-                                <h5>Patient Trust & Excellence</h5>
-                                <p>Rated ⭐⭐⭐⭐⭐ <strong>4.9 / 5</strong> by thousands of families across Erode, Salem, Namakkal, and Coimbatore districts.</p>
+                                <h5 data-i18n="about_card3_title">Patient Trust & Excellence</h5>
+                                <p data-i18n="about_card3_p">Rated 4.9 / 5 by thousands of families across Erode, Salem, Namakkal, and Coimbatore districts.</p>
                             </div>
                         </div>
                     </div>
@@ -308,9 +323,9 @@
         <section class="specialties-section" id="specialties">
             <div class="container">
                 <div class="section-title">
-                    <span class="section-badge">துறைகள் | Specialties</span>
-                    <h3>Specialized Clinical Departments</h3>
-                    <p>Comprehensive multispecialty healthcare with super-specialized surgical excellence.</p>
+                    <span class="section-badge" data-i18n="spec_badge">Clinical Departments</span>
+                    <h3 data-i18n="spec_title">Specialized Clinical Departments</h3>
+                    <p data-i18n="spec_sub">Comprehensive multispecialty healthcare with super-specialized surgical excellence.</p>
                 </div>
 
                 <div class="card-grid">
@@ -319,10 +334,10 @@
                         <div class="specialty-icon-box">
                             <i class="fas fa-user-md"></i>
                         </div>
-                        <span class="specialty-badge">Super Specialty</span>
-                        <h4>பிளாஸ்டிக் & அழகு அறுவை சிகிச்சை</h4>
-                        <h5>Plastic & Cosmetic Surgery</h5>
-                        <p>Aesthetic procedures, scar revision, facial reconstruction, and advanced cosmetic treatments.</p>
+                        <span class="specialty-badge" data-i18n="spec_1_badge">Super Specialty</span>
+                        <h4 data-i18n="spec_1_title">Plastic & Cosmetic Surgery</h4>
+                        <h5 data-i18n="spec_1_sub">Aesthetic & Reconstructive Care</h5>
+                        <p data-i18n="spec_1_desc">Aesthetic procedures, scar revision, facial reconstruction, and advanced cosmetic treatments.</p>
                     </div>
 
                     <!-- Specialty 2 -->
@@ -330,10 +345,10 @@
                         <div class="specialty-icon-box">
                             <i class="fas fa-fire-alt"></i>
                         </div>
-                        <span class="specialty-badge">Dedicated Unit</span>
-                        <h4>தீக்காய சிறப்பு சிகிச்சை பிரிவு</h4>
-                        <h5>Specialized Burn Care Center</h5>
-                        <p>Specialized acute burn management, skin grafting, post-burn contracture release & holistic rehabilitation.</p>
+                        <span class="specialty-badge" data-i18n="spec_2_badge">Dedicated Unit</span>
+                        <h4 data-i18n="spec_2_title">Specialized Burn Care Center</h4>
+                        <h5 data-i18n="spec_2_sub">Acute Burn Recovery</h5>
+                        <p data-i18n="spec_2_desc">Specialized acute burn management, skin grafting, post-burn contracture release & holistic rehabilitation.</p>
                     </div>
 
                     <!-- Specialty 3 -->
@@ -341,10 +356,10 @@
                         <div class="specialty-icon-box">
                             <i class="fas fa-hand-holding-medical"></i>
                         </div>
-                        <span class="specialty-badge">Microsurgery</span>
-                        <h4>கை & நுண் அறுவை சிகிச்சை</h4>
-                        <h5>Hand Surgery & Reconstructive Care</h5>
-                        <p>Hand injuries, tendon repair, nerve reconstructive surgery, and replantation procedures.</p>
+                        <span class="specialty-badge" data-i18n="spec_3_badge">Microsurgery</span>
+                        <h4 data-i18n="spec_3_title">Hand & Microvascular Surgery</h4>
+                        <h5 data-i18n="spec_3_sub">Precision Trauma Care</h5>
+                        <p data-i18n="spec_3_desc">Hand injuries, tendon repair, nerve reconstructive surgery, and replantation procedures.</p>
                     </div>
 
                     <!-- Specialty 4 -->
@@ -352,10 +367,10 @@
                         <div class="specialty-icon-box">
                             <i class="fas fa-cut"></i>
                         </div>
-                        <span class="specialty-badge">Minimally Invasive</span>
-                        <h4>பொது & லேப்ராஸ்கோபிக் சிகிச்சை</h4>
-                        <h5>General & Laparoscopic Surgery</h5>
-                        <p>Advanced keyhole surgeries, hernia repair, gallbladder surgery, appendectomy, and gastrointestinal care.</p>
+                        <span class="specialty-badge" data-i18n="spec_4_badge">Minimally Invasive</span>
+                        <h4 data-i18n="spec_4_title">General & Laparoscopic Surgery</h4>
+                        <h5 data-i18n="spec_4_sub">Advanced Keyhole Procedures</h5>
+                        <p data-i18n="spec_4_desc">Advanced keyhole surgeries, hernia repair, gallbladder surgery, appendectomy, and gastrointestinal care.</p>
                     </div>
 
                     <!-- Specialty 5 -->
@@ -363,10 +378,10 @@
                         <div class="specialty-icon-box">
                             <i class="fas fa-shoe-prints"></i>
                         </div>
-                        <span class="specialty-badge">Limb Salvage</span>
-                        <h4>சர்க்கரை நோய் கால் & இரத்த நாள பராமரிப்பு</h4>
-                        <h5>Diabetic Foot & Vascular Clinic</h5>
-                        <p>Diabetic foot ulcer management, preventive limb salvage, vascular repair, and chronic wound healing.</p>
+                        <span class="specialty-badge" data-i18n="spec_5_badge">Limb Salvage</span>
+                        <h4 data-i18n="spec_5_title">Diabetic Foot & Vascular Care</h4>
+                        <h5 data-i18n="spec_5_sub">Wound & Vascular Clinic</h5>
+                        <p data-i18n="spec_5_desc">Diabetic foot ulcer management, preventive limb salvage, vascular repair, and chronic wound healing.</p>
                     </div>
 
                     <!-- Specialty 6 -->
@@ -374,10 +389,10 @@
                         <div class="specialty-icon-box">
                             <i class="fas fa-ambulance"></i>
                         </div>
-                        <span class="specialty-badge">24/7 Available</span>
-                        <h4>24/7 அவசர & விபத்து சிகிச்சை</h4>
-                        <h5>Emergency & Trauma Critical Care</h5>
-                        <p>Rapid emergency resuscitation, trauma care, 24/7 ambulance support, and immediate physician attention.</p>
+                        <span class="specialty-badge" data-i18n="spec_6_badge">24/7 Available</span>
+                        <h4 data-i18n="spec_6_title">Emergency & Trauma Critical Care</h4>
+                        <h5 data-i18n="spec_6_sub">Rapid Response Center</h5>
+                        <p data-i18n="spec_6_desc">Rapid emergency resuscitation, trauma care, 24/7 ambulance support, and immediate physician attention.</p>
                     </div>
 
                     <!-- Specialty 7 -->
@@ -385,10 +400,10 @@
                         <div class="specialty-icon-box">
                             <i class="fas fa-procedures"></i>
                         </div>
-                        <span class="specialty-badge">Intensive Care</span>
-                        <h4>தீவிர சிகிச்சை & உள்நோயாளி பிரிவு</h4>
-                        <h5>ICU & In-Patient Healthcare</h5>
-                        <p>State-of-the-art multi-parameter monitors, ventilators, aseptic wards, and private recovery suites.</p>
+                        <span class="specialty-badge" data-i18n="spec_7_badge">Intensive Care</span>
+                        <h4 data-i18n="spec_7_title">ICU & In-Patient Healthcare</h4>
+                        <h5 data-i18n="spec_7_sub">Critical Care Unit</h5>
+                        <p data-i18n="spec_7_desc">State-of-the-art multi-parameter monitors, ventilators, aseptic wards, and private recovery suites.</p>
                     </div>
 
                     <!-- Specialty 8 -->
@@ -396,10 +411,10 @@
                         <div class="specialty-icon-box">
                             <i class="fas fa-vial"></i>
                         </div>
-                        <span class="specialty-badge">High Precision</span>
-                        <h4>நவீன ஆய்வகம் & டிஜிட்டல் எக்ஸ்ரே</h4>
-                        <h5>Diagnostic Lab & Digital Imaging</h5>
-                        <p>Comprehensive pathology, hematology, biochemistry, and computerized digital radiography.</p>
+                        <span class="specialty-badge" data-i18n="spec_8_badge">High Precision</span>
+                        <h4 data-i18n="spec_8_title">Diagnostic Lab & Digital X-Ray</h4>
+                        <h5 data-i18n="spec_8_sub">Fast Accurate Reports</h5>
+                        <p data-i18n="spec_8_desc">Comprehensive pathology, hematology, biochemistry, and computerized digital radiography.</p>
                     </div>
                 </div>
             </div>
@@ -409,9 +424,9 @@
         <section class="doctors-section" id="doctors">
             <div class="container">
                 <div class="section-title">
-                    <span class="section-badge">மருத்துவர்கள் | Specialist Doctors</span>
-                    <h3>Meet Our Leading Medical Specialists</h3>
-                    <p>Highly qualified and experienced surgeons and physicians committed to ethical patient care.</p>
+                    <span class="section-badge" data-i18n="doc_badge">Specialist Doctors</span>
+                    <h3 data-i18n="doc_title">Meet Our Leading Medical Specialists</h3>
+                    <p data-i18n="doc_sub">Highly qualified and experienced surgeons and physicians committed to ethical patient care.</p>
                 </div>
 
                 <div class="doctors-grid">
@@ -422,14 +437,14 @@
                             <span class="doctor-exp-badge"><i class="fas fa-award"></i> 25+ Years Exp</span>
                         </div>
                         <div class="doctor-info">
-                            <h4>Dr. G. I. Nambi</h4>
-                            <p class="doctor-qual">M.S., M.Ch. (Plastic Surgery)</p>
-                            <p class="doctor-spec"><i class="fas fa-stethoscope"></i> Medical Director, Chief Plastic & Burn Surgeon</p>
+                            <h4 data-i18n="doc_1_name">Dr. G. I. Nambi</h4>
+                            <p class="doctor-qual" data-i18n="doc_1_qual">M.S., M.Ch. (Plastic Surgery)</p>
+                            <p class="doctor-spec"><i class="fas fa-stethoscope"></i> <span data-i18n="doc_1_spec">Medical Director, Chief Plastic & Burn Surgeon</span></p>
                             <div class="doctor-timings">
-                                <i class="far fa-clock"></i> Mon – Sat: 9:00 AM – 2:00 PM
+                                <i class="far fa-clock"></i> <span data-i18n="doc_1_time">Mon – Sat: 9:00 AM – 2:00 PM</span>
                             </div>
                             <a href="#appointment" class="doctor-cta btn-doctor-select" data-doctor="Dr. G. I. Nambi">
-                                Book Consultation <i class="fas fa-arrow-right"></i>
+                                <span data-i18n="doc_1_btn">Book Consultation</span> <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -441,14 +456,14 @@
                             <span class="doctor-exp-badge"><i class="fas fa-award"></i> 18+ Years Exp</span>
                         </div>
                         <div class="doctor-info">
-                            <h4>Dr. J. Vidhya Devi</h4>
-                            <p class="doctor-qual">MBBS, DGO, MS</p>
-                            <p class="doctor-spec"><i class="fas fa-user-md"></i> Senior Consultant Specialist</p>
+                            <h4 data-i18n="doc_2_name">Dr. J. Vidhya Devi</h4>
+                            <p class="doctor-qual" data-i18n="doc_2_qual">MBBS, DGO, MS</p>
+                            <p class="doctor-spec"><i class="fas fa-user-md"></i> <span data-i18n="doc_2_spec">Senior Consultant Specialist</span></p>
                             <div class="doctor-timings">
-                                <i class="far fa-clock"></i> Mon – Sat: 10:00 AM – 4:00 PM
+                                <i class="far fa-clock"></i> <span data-i18n="doc_2_time">Mon – Sat: 10:00 AM – 4:00 PM</span>
                             </div>
                             <a href="#appointment" class="doctor-cta btn-doctor-select" data-doctor="Dr. J. Vidhya Devi">
-                                Book Consultation <i class="fas fa-arrow-right"></i>
+                                <span data-i18n="doc_2_btn">Book Consultation</span> <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -460,14 +475,14 @@
                             <span class="doctor-exp-badge"><i class="fas fa-award"></i> 16+ Years Exp</span>
                         </div>
                         <div class="doctor-info">
-                            <h4>Dr. P. Arun Mozhi</h4>
-                            <p class="doctor-qual">MBBS, MD / DNB</p>
-                            <p class="doctor-spec"><i class="fas fa-stethoscope"></i> Consultant Specialist & Critical Care</p>
+                            <h4 data-i18n="doc_3_name">Dr. P. Arun Mozhi</h4>
+                            <p class="doctor-qual" data-i18n="doc_3_qual">MBBS, MD / DNB</p>
+                            <p class="doctor-spec"><i class="fas fa-stethoscope"></i> <span data-i18n="doc_3_spec">Consultant Specialist & Critical Care</span></p>
                             <div class="doctor-timings">
-                                <i class="far fa-clock"></i> Mon – Sun: 9:00 AM – 5:00 PM
+                                <i class="far fa-clock"></i> <span data-i18n="doc_3_time">Mon – Sun: 9:00 AM – 5:00 PM</span>
                             </div>
                             <a href="#appointment" class="doctor-cta btn-doctor-select" data-doctor="Dr. P. Arun Mozhi">
-                                Book Consultation <i class="fas fa-arrow-right"></i>
+                                <span data-i18n="doc_3_btn">Book Consultation</span> <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -479,14 +494,14 @@
                             <span class="doctor-exp-badge"><i class="fas fa-award"></i> 12+ Years Exp</span>
                         </div>
                         <div class="doctor-info">
-                            <h4>Dr. P. Ajith Swaminath</h4>
-                            <p class="doctor-qual">MBBS, MS (General Surgery)</p>
-                            <p class="doctor-spec"><i class="fas fa-cut"></i> Consultant General & Laparoscopic Surgeon</p>
+                            <h4 data-i18n="doc_4_name">Dr. P. Ajith Swaminath</h4>
+                            <p class="doctor-qual" data-i18n="doc_4_qual">MBBS, MS (General Surgery)</p>
+                            <p class="doctor-spec"><i class="fas fa-cut"></i> <span data-i18n="doc_4_spec">Consultant General & Laparoscopic Surgeon</span></p>
                             <div class="doctor-timings">
-                                <i class="far fa-clock"></i> Mon – Sat: 11:00 AM – 6:00 PM
+                                <i class="far fa-clock"></i> <span data-i18n="doc_4_time">Mon – Sat: 11:00 AM – 6:00 PM</span>
                             </div>
                             <a href="#appointment" class="doctor-cta btn-doctor-select" data-doctor="Dr. P. Ajith Swaminath">
-                                Book Consultation <i class="fas fa-arrow-right"></i>
+                                <span data-i18n="doc_4_btn">Book Consultation</span> <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -498,9 +513,9 @@
         <section class="facilities-section" id="facilities">
             <div class="container">
                 <div class="section-title">
-                    <span class="section-badge">வசதிகள் | Infrastructure</span>
-                    <h3>World-Class Healthcare Infrastructure</h3>
-                    <p>Engineered for clinical precision, infection control, and patient comfort.</p>
+                    <span class="section-badge" data-i18n="fac_badge">Infrastructure</span>
+                    <h3 data-i18n="fac_title">World-Class Healthcare Infrastructure</h3>
+                    <p data-i18n="fac_sub">Engineered for clinical precision, infection control, and patient comfort.</p>
                 </div>
 
                 <div class="card-grid">
@@ -509,8 +524,8 @@
                             <i class="fas fa-fire-extinguisher"></i>
                         </div>
                         <div class="facility-info">
-                            <h4>Specialized Burn ICU</h4>
-                            <p>Sterile temperature-controlled burn treatment cubicles to prevent secondary infection.</p>
+                            <h4 data-i18n="fac_1_title">Specialized Burn ICU</h4>
+                            <p data-i18n="fac_1_desc">Sterile temperature-controlled burn treatment cubicles to prevent secondary infection.</p>
                         </div>
                     </div>
 
@@ -519,8 +534,8 @@
                             <i class="fas fa-heartbeat"></i>
                         </div>
                         <div class="facility-info">
-                            <h4>Modular Operation Theatres</h4>
-                            <p>Laminar airflow OTs equipped with advanced surgical microscopes and laparoscopic towers.</p>
+                            <h4 data-i18n="fac_2_title">Modular Operation Theatres</h4>
+                            <p data-i18n="fac_2_desc">Laminar airflow OTs equipped with advanced surgical microscopes and laparoscopic towers.</p>
                         </div>
                     </div>
 
@@ -529,8 +544,8 @@
                             <i class="fas fa-procedures"></i>
                         </div>
                         <div class="facility-info">
-                            <h4>24/7 Intensive Care Unit</h4>
-                            <p>Full ventilator support, advanced telemetry monitors, and dedicated critical care nursing.</p>
+                            <h4 data-i18n="fac_3_title">24/7 Intensive Care Unit</h4>
+                            <p data-i18n="fac_3_desc">Full ventilator support, advanced telemetry monitors, and dedicated critical care nursing.</p>
                         </div>
                     </div>
 
@@ -539,8 +554,8 @@
                             <i class="fas fa-x-ray"></i>
                         </div>
                         <div class="facility-info">
-                            <h4>Digital X-Ray & Diagnostics</h4>
-                            <p>High-resolution low-radiation digital radiography with immediate physician review.</p>
+                            <h4 data-i18n="fac_4_title">Digital X-Ray & Diagnostics</h4>
+                            <p data-i18n="fac_4_desc">High-resolution low-radiation digital radiography with immediate physician review.</p>
                         </div>
                     </div>
 
@@ -549,8 +564,8 @@
                             <i class="fas fa-pills"></i>
                         </div>
                         <div class="facility-info">
-                            <h4>24/7 In-House Pharmacy</h4>
-                            <p>Comprehensive availability of genuine prescription surgical, burn care, and critical medicines.</p>
+                            <h4 data-i18n="fac_5_title">24/7 In-House Pharmacy</h4>
+                            <p data-i18n="fac_5_desc">Comprehensive availability of genuine prescription surgical, burn care, and critical medicines.</p>
                         </div>
                     </div>
 
@@ -559,8 +574,8 @@
                             <i class="fas fa-bed"></i>
                         </div>
                         <div class="facility-info">
-                            <h4>In-Patient Wards & Suites</h4>
-                            <p>Hygienic general wards, semi-private rooms, and deluxe single air-conditioned recovery suites.</p>
+                            <h4 data-i18n="fac_6_title">In-Patient Wards & Suites</h4>
+                            <p data-i18n="fac_6_desc">Hygienic general wards, semi-private rooms, and deluxe single air-conditioned recovery suites.</p>
                         </div>
                     </div>
                 </div>
@@ -573,31 +588,30 @@
                 <div class="booking-grid">
                     <div class="booking-content-side">
                         <span class="booking-badge-light">
-                            <i class="far fa-calendar-check"></i> Easy Appointment Booking
+                            <i class="far fa-calendar-check"></i> <span data-i18n="book_badge">Easy Online Booking</span>
                         </span>
-                        <h3>
-                            பரிசோதனைக்கு முன்பதிவு<br>
-                            செய்யுங்கள்
+                        <h3 data-i18n="book_title">
+                            Book Your Doctor Consultation
                         </h3>
-                        <p>
+                        <p data-i18n="book_desc">
                             Schedule your consultation with our specialist doctors at Kavin Medical Center. Our desk will confirm your appointment within 15 minutes.
                         </p>
 
                         <div class="booking-perks">
                             <div class="booking-perk-item">
                                 <i class="fas fa-clock"></i>
-                                <span>OPD Hours: Monday – Sunday (8:00 AM – 7:00 PM)</span>
+                                <span data-i18n="book_perk_1">OPD Hours: Monday – Sunday (8:00 AM – 7:00 PM)</span>
                             </div>
                             <div class="booking-perk-item">
                                 <i class="fas fa-ambulance"></i>
-                                <span>Emergency & Trauma: 24/7 Always Open for Immediate Care</span>
+                                <span data-i18n="book_perk_2">Emergency & Trauma: 24/7 Always Open for Immediate Care</span>
                             </div>
                         </div>
 
                         <a href="tel:+916374204706" class="booking-direct-call">
                             <i class="fas fa-headset"></i>
                             <div>
-                                <small>Call Direct for Quick Help</small>
+                                <small data-i18n="book_direct_label">Call Direct for Quick Help</small>
                                 <strong>+91 63742 04706 / +91 73581 04706</strong>
                             </div>
                         </a>
@@ -605,14 +619,14 @@
 
                     <div class="booking-form-card">
                         <div class="form-header">
-                            <h4>Book Consultation Slot</h4>
-                            <p>Please fill out your details to schedule your visit</p>
+                            <h4 data-i18n="form_title">Book Consultation Slot</h4>
+                            <p data-i18n="form_sub">Please fill out your details to schedule your visit</p>
                         </div>
 
                         <form id="appointmentForm">
                             <div class="form-grid-2">
                                 <div class="form-group">
-                                    <label for="p_name">Patient Name | பெயர் *</label>
+                                    <label for="p_name" data-i18n="form_label_name">Patient Full Name *</label>
                                     <div class="form-input-box">
                                         <i class="far fa-user"></i>
                                         <input type="text" id="p_name" name="p_name" placeholder="Full name of patient" required>
@@ -620,7 +634,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="p_phone">Phone Number | தொலைபேசி *</label>
+                                    <label for="p_phone" data-i18n="form_label_phone">Phone Number *</label>
                                     <div class="form-input-box">
                                         <i class="fas fa-phone-alt"></i>
                                         <input type="tel" id="p_phone" name="p_phone" placeholder="+91 98765 43210" required>
@@ -630,7 +644,7 @@
 
                             <div class="form-grid-2">
                                 <div class="form-group">
-                                    <label for="p_dept">Specialty / Doctor | பிரிவு *</label>
+                                    <label for="p_dept" data-i18n="form_label_dept">Department / Specialist *</label>
                                     <div class="form-input-box">
                                         <i class="fas fa-stethoscope"></i>
                                         <select id="p_dept" name="p_dept" required>
@@ -648,7 +662,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="p_date">Preferred Date | தேதி *</label>
+                                    <label for="p_date" data-i18n="form_label_date">Preferred Date *</label>
                                     <div class="form-input-box">
                                         <i class="far fa-calendar-alt"></i>
                                         <input type="date" id="p_date" name="p_date" required>
@@ -657,7 +671,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-form-submit">
-                                <i class="far fa-calendar-check"></i> முன்பதிவை உறுதி செய்க | Confirm Appointment
+                                <i class="far fa-calendar-check"></i> <span data-i18n="form_btn_submit">Confirm Appointment</span>
                             </button>
                         </form>
                     </div>
@@ -669,9 +683,9 @@
         <section class="contact-section" id="contact">
             <div class="container">
                 <div class="section-title">
-                    <span class="section-badge">தொடர்புக்கு | Location</span>
-                    <h3>Visit Kavin Medical Center, Erode</h3>
-                    <p>Conveniently located on Erode–Perundurai Main Road with ample parking and direct emergency access.</p>
+                    <span class="section-badge" data-i18n="contact_badge">Location & Contact</span>
+                    <h3 data-i18n="contact_title">Visit Kavin Medical Center, Erode</h3>
+                    <p data-i18n="contact_sub">Conveniently located on Erode–Perundurai Main Road with ample parking and direct emergency access.</p>
                 </div>
 
                 <div class="contact-layout-grid">
@@ -681,8 +695,8 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
-                                <h5>Hospital Address | முகவரி</h5>
-                                <p>68, Gandhi Nagar,<br>Erode to Perundurai Main Road,<br>Erode — 638 011, Tamil Nadu, India</p>
+                                <h5 data-i18n="contact_addr_title">Hospital Address</h5>
+                                <p data-i18n="contact_addr_desc">68, Gandhi Nagar, Erode to Perundurai Main Road, Erode — 638 011, Tamil Nadu, India</p>
                             </div>
                         </div>
 
@@ -691,7 +705,7 @@
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div>
-                                <h5>Telephone Numbers | தொலைபேசி</h5>
+                                <h5 data-i18n="contact_phone_title">Telephone Numbers</h5>
                                 <p>
                                     <a href="tel:+916374204706">+91 63742 04706</a><br>
                                     <a href="tel:+917358104706">+91 73581 04706</a>
@@ -704,7 +718,7 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
-                                <h5>Email Inquiry | மின்னஞ்சல்</h5>
+                                <h5 data-i18n="contact_email_title">Email Inquiry</h5>
                                 <p><a href="mailto:info@kavinmedicalcenter.org">info@kavinmedicalcenter.org</a></p>
                             </div>
                         </div>
@@ -714,8 +728,8 @@
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div>
-                                <h5>Working Hours | நேரம்</h5>
-                                <p>OPD Consultations: Monday – Sunday (8:00 AM – 7:00 PM)<br><strong style="color:var(--emergency);">Emergency & Ambulance: 24/7 Always Open</strong></p>
+                                <h5 data-i18n="contact_time_title">Working Hours</h5>
+                                <p data-i18n="contact_time_desc">OPD Consultations: Monday – Sunday (8:00 AM – 7:00 PM)<br><strong style="color:var(--emergency);">Emergency: 24/7 Always Open</strong></p>
                             </div>
                         </div>
                     </div>
@@ -739,8 +753,8 @@
             <div class="footer-top-grid">
                 <div class="footer-brand">
                     <img src="assets/images/kavin_logo_white.svg" alt="Kavin Medical Center White Logo">
-                    <p>
-                        <strong>Kavin Medical Center</strong> — Advanced Multispecialty & Super-Specialty Hospital in Erode dedicated to ethical clinical excellence, specialized plastic/burn surgery, and compassionate patient care.
+                    <p data-i18n="footer_desc">
+                        Kavin Medical Center — Advanced Multispecialty & Super-Specialty Hospital in Erode dedicated to ethical clinical excellence, specialized plastic/burn surgery, and compassionate patient care.
                     </p>
                     <div class="footer-social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -751,19 +765,19 @@
                 </div>
 
                 <div class="footer-col">
-                    <h5>Quick Navigation</h5>
+                    <h5 data-i18n="footer_nav_title">Quick Navigation</h5>
                     <ul class="footer-links-list">
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home (முகப்பு)</a></li>
-                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us (எங்களை பற்றி)</a></li>
-                        <li><a href="#specialties"><i class="fas fa-chevron-right"></i> Specialties (துறைகள்)</a></li>
-                        <li><a href="#doctors"><i class="fas fa-chevron-right"></i> Our Doctors (மருத்துவர்கள்)</a></li>
-                        <li><a href="#facilities"><i class="fas fa-chevron-right"></i> Facilities (வசதிகள்)</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us (தொடர்புக்கு)</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> <span data-i18n="nav_home">Home</span></a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> <span data-i18n="nav_about">About Us</span></a></li>
+                        <li><a href="#specialties"><i class="fas fa-chevron-right"></i> <span data-i18n="nav_specialties">Specialties</span></a></li>
+                        <li><a href="#doctors"><i class="fas fa-chevron-right"></i> <span data-i18n="nav_doctors">Doctors</span></a></li>
+                        <li><a href="#facilities"><i class="fas fa-chevron-right"></i> <span data-i18n="nav_facilities">Facilities</span></a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> <span data-i18n="nav_contact">Contact</span></a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h5>Key Specialties</h5>
+                    <h5 data-i18n="footer_spec_title">Key Specialties</h5>
                     <ul class="footer-links-list">
                         <li><a href="#specialties"><i class="fas fa-chevron-right"></i> Plastic & Cosmetic Surgery</a></li>
                         <li><a href="#specialties"><i class="fas fa-chevron-right"></i> Specialized Burn Care Unit</a></li>
@@ -775,7 +789,7 @@
                 </div>
 
                 <div class="footer-col">
-                    <h5>Emergency Contact</h5>
+                    <h5 data-i18n="footer_emg_title">Emergency Contact</h5>
                     <div class="footer-emergency-box">
                         <i class="fas fa-ambulance"></i>
                         <div>
@@ -794,7 +808,7 @@
 
             <div class="footer-bottom-bar">
                 <div class="footer-bottom-inner">
-                    <p>&copy; 2026 Kavin Medical Center, Erode. All Rights Reserved.</p>
+                    <p data-i18n="footer_copy">&copy; 2026 Kavin Medical Center, Erode. All Rights Reserved.</p>
                     <p>Premier Multispecialty Healthcare Institution in Western Tamil Nadu</p>
                 </div>
             </div>
