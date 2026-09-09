@@ -588,9 +588,9 @@ nav ul li a.active { color: var(--health); }
 /* ─── Doctor Cards ─── */
 .doctors-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 28px;
-    max-width: 820px;
+    max-width: 1140px;
     margin: 0 auto;
 }
 
