@@ -1,60 +1,78 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- Header Scroll Effect ---
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+/**
+ * KAVIN MEDICAL CENTER — ERODE
+ * Core Interactive JavaScript
+ */
 
-    // --- Mobile Menu Toggle ---
+document.addEventListener('DOMContentLoaded', () => {
+    // ─── 1. Sticky Header Shrink on Scroll ───
+    const header = document.getElementById('site-header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }, { passive: true });
+    }
+
+    // ─── 2. Mobile Drawer Navigation ───
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('navbar');
 
-    if (mobileToggle) {
+    if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            navMenu.classList.toggle('active');
-
-            // Toggle icon
+            const isActive = navMenu.classList.toggle('active');
+            
+            // Toggle menu icon
             const icon = mobileToggle.querySelector('i');
-            if (navMenu.classList.contains('active')) {
-                icon.classList.replace('fa-bars', 'fa-times');
-            } else {
-                icon.classList.replace('fa-times', 'fa-bars');
+            if (icon) {
+                if (isActive) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
         });
     }
 
-    // Close menu when clicking outside or on a link
-    document.addEventListener('click', (e) => {
-        if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
-            navMenu.classList.remove('active');
-            mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
-        }
-    });
-
-    document.querySelectorAll('#nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            mobileToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
-        });
-    });
-
-
-    // --- Smooth Scrolling for Navigation ---
+    // ─── 3. Smooth Anchor Scrolling with Sticky Offset ───
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (!targetId || targetId === '#') return;
 
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const headerOffset = 130; // Adjust for the sticky primary/emergency header combo
+                e.preventDefault();
+                const headerOffset = 110;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -66,41 +84,106 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Interactive Appointment Form Feedback ---
+    // ─── 4. Active Navigation Indicator on Scroll ───
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('#nav-links a');
+
+    if (sections.length > 0 && navLinks.length > 0) {
+        const updateActiveNavLink = () => {
+            let current = '';
+            sections.forEach(s => {
+                const sectionTop = s.offsetTop - 140;
+                if (window.pageYOffset >= sectionTop) {
+                    current = s.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+        updateActiveNavLink();
+    }
+
+    // ─── 5. Appointment Form Submission Handler ───
     const appointmentForm = document.getElementById('appointmentForm');
 
     if (appointmentForm) {
+        // Pre-fill doctor in select if 'data-doctor' is clicked from doctor cards
+        document.querySelectorAll('.btn-doctor-select').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const doctorName = this.getAttribute('data-doctor');
+                const deptSelect = appointmentForm.querySelector('select[name="p_dept"]');
+                if (deptSelect && doctorName) {
+                    // Try to match or prefill
+                    for (let option of deptSelect.options) {
+                        if (option.text.includes(doctorName)) {
+                            deptSelect.value = option.value;
+                            break;
+                        }
+                    }
+                }
+            });
+        });
+
+        // Set default minimum date to today
+        const dateInput = appointmentForm.querySelector('input[type="date"]');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+            if (!dateInput.value) {
+                dateInput.value = today;
+            }
+        }
+
         appointmentForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const submitBtn = appointmentForm.querySelector('button');
+            const submitBtn = appointmentForm.querySelector('button[type="submit"]');
             const originalContent = submitBtn.innerHTML;
 
-            // Localized Loading Feedback
+            // Loading feedback
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> சரிபார்க்கப்படுகிறது... | Verifying...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> முன்பதிவு செய்யப்படுகிறது... | Verifying...';
 
             const formData = new FormData(appointmentForm);
             const data = Object.fromEntries(formData.entries());
 
             try {
-                // Simulation of Secure Log
-                await new Promise(resolve => setTimeout(resolve, 2000));
+                // Simulate fast backend response
+                await new Promise(resolve => setTimeout(resolve, 1200));
 
-                // Clear & Show Success
+                // Success Message Card
                 appointmentForm.innerHTML = `
-                    <div style="text-align: center; padding: 40px 10px;">
-                        <div style="width: 70px; height: 70px; background: #008B3E; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem;">
+                    <div style="text-align: center; padding: 32px 16px;">
+                        <div style="width: 64px; height: 64px; background: #0D9488; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-size: 1.8rem; box-shadow: 0 4px 16px rgba(13, 148, 136, 0.35);">
                             <i class="fas fa-check"></i>
                         </div>
-                        <h4 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; color: #0F172A;">முன்பதிவு வெற்றியடைந்தது!</h4>
-                        <p style="color: #6B7280; font-size: 1.05rem; border-bottom: 1px solid #EEE; padding-bottom: 18px;">Kavin Medical Center - Appointment Requested Successfully.</p>
-                        <p style="margin-top: 18px; font-weight: 700; color: #1E293B;">எங்கள் மருத்துவக் குழு 15 நிமிடங்களில் உங்களை தொடர்பு கொள்ளும்.<br><small style="opacity: 0.7; font-weight: normal; font-size: 0.9rem;">We will confirm your slot at ${data.p_phone || 'your registered number'} shortly.</small></p>
-                        <button onclick="location.reload()" class="btn btn-primary" style="margin-top: 25px; font-size: 0.9rem; padding: 10px 24px; border-radius: 8px;">மறுபடியும் பதிவு செய்ய | Book Another</button>
+                        <h4 style="font-size: 1.35rem; font-weight: 800; color: #0F2744; margin-bottom: 8px;">முன்பதிவு வெற்றியடைந்தது!</h4>
+                        <p style="color: #64748B; font-size: 1rem; border-bottom: 1px solid #E2E8F0; padding-bottom: 16px; margin-bottom: 16px;">
+                            Appointment Requested Successfully for <strong>${data.p_name || 'Patient'}</strong>
+                        </p>
+                        <div style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 10px; padding: 14px; margin-bottom: 20px; text-align: left; font-size: 0.88rem; color: #0F766E;">
+                            <p style="margin: 0 0 6px 0;"><strong>Department:</strong> ${data.p_dept || 'General Consultation'}</p>
+                            <p style="margin: 0 0 6px 0;"><strong>Date:</strong> ${data.p_date || 'Selected Slot'}</p>
+                            <p style="margin: 0;"><strong>Contact:</strong> ${data.p_phone || '-'}</p>
+                        </div>
+                        <p style="font-size: 0.92rem; font-weight: 600; color: #1E293B;">
+                            எங்கள் மருத்துவக் குழு 15 நிமிடங்களில் உங்களை தொடர்பு கொள்ளும்.<br>
+                            <small style="color: #64748B; font-weight: normal;">We will call you at ${data.p_phone} to confirm the slot.</small>
+                        </p>
+                        <button onclick="location.reload()" class="btn btn-primary" style="margin-top: 22px; width: 100%; padding: 12px; font-size: 0.92rem;">
+                            <i class="fas fa-redo"></i> புதிய முன்பதிவு | Book Another Appointment
+                        </button>
                     </div>
                 `;
 
-                console.log('Kavin Medical Center - Appointment captured successfully:', data);
+                console.log('Kavin Medical Center - Appointment successfully logged:', data);
 
             } catch (err) {
                 console.error('Submission Failed:', err);
@@ -110,63 +193,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // --- Reveal Animation on Scroll ---
-    const reveal = () => {
-        const reveals = document.querySelectorAll('.card, .doctor-card, .stat-item, .booking-section');
-        reveals.forEach(el => {
-            const windowHeight = window.innerHeight;
-            const elementTop = el.getBoundingClientRect().top;
-            const elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-            }
-        });
-    };
-
-    // Staggered reveal setup
-    const initAnimatedElements = () => {
-        document.querySelectorAll('.card, .doctor-card, .stat-item, .booking-section, .hero-content, .hero-image').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(40px)';
-            el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-        });
-    };
-
-    initAnimatedElements();
-    
-    // Use Intersection Observer for better performance
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // --- Active Nav Link on Scroll ---
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(s => {
-            const st = s.offsetTop - 140;
-            if (window.scrollY >= st) current = s.getAttribute('id');
-        });
-        document.querySelectorAll('#nav-links a').forEach(a => {
-            a.classList.remove('active');
-            if (a.getAttribute('href') === '#' + current) {
-                a.classList.add('active');
-            }
-        });
-    });
-
 });
-
