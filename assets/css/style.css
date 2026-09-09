@@ -1,51 +1,55 @@
 /* ============================================================
    KAVIN MEDICAL CENTER — ERODE
-   Modern Multispecialty & Super-Specialty Hospital Design System
+   Full-Width Edge-to-Edge Fluid Hospital Design System
+   Professional Corporate Healthcare Typography & Layout
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Mukta+Malar:wght@400;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 /* ─── Design Tokens ─── */
 :root {
-    --primary: #0F2744;          /* Deep Navy */
-    --primary-dark: #081628;
-    --primary-light: #1E3A5F;
-    --teal: #0D9488;             /* Clinical Teal */
-    --teal-dark: #0F766E;
-    --teal-light: #F0FDFA;
-    --teal-border: #99F6E4;
-    --accent: #0284C7;           /* Sky Blue Accent */
-    --emergency: #E11D48;        /* Alert Red */
-    --emergency-light: #FFF1F2;
+    /* Brand Colors */
+    --primary: #0A1E3B;          /* Deep Corporate Medical Navy */
+    --primary-dark: #051021;
+    --primary-light: #153359;
+    --teal: #008B7A;             /* Signature Clinical Teal */
+    --teal-dark: #006D60;
+    --teal-light: #E6F7F5;
+    --teal-glow: rgba(0, 139, 122, 0.2);
+    --cyan: #0284C7;             /* Precision Blue */
+    --cyan-light: #E0F2FE;
+    --emergency: #DC2626;        /* Critical Red */
+    --emergency-light: #FEF2F2;
     --gold: #D97706;
     --gold-light: #FEF3C7;
     
-    /* Neutrals */
-    --text-main: #1E293B;        /* Slate 800 */
+    /* Neutral & Background Tones */
+    --text-dark: #0F172A;        /* Slate 900 */
+    --text-body: #334155;        /* Slate 700 */
     --text-muted: #64748B;       /* Slate 500 */
     --text-light: #94A3B8;       /* Slate 400 */
-    --bg-page: #F8FAFC;          /* Slate 50 */
+    --bg-page: #F8FAFC;          /* Clean Medical Tint */
     --bg-white: #FFFFFF;
     --border: #E2E8F0;           /* Slate 200 */
     --border-hover: #CBD5E1;
     
-    /* Shadows & Elevation */
-    --shadow-xs: 0 1px 2px rgba(15, 39, 68, 0.04);
-    --shadow-sm: 0 2px 8px rgba(15, 39, 68, 0.06);
-    --shadow-md: 0 8px 24px rgba(15, 39, 68, 0.08);
-    --shadow-lg: 0 16px 40px rgba(15, 39, 68, 0.12);
-    --shadow-hover: 0 12px 32px rgba(13, 148, 136, 0.16);
+    /* Modern Elevation Shadows */
+    --shadow-xs: 0 1px 3px rgba(10, 30, 59, 0.04);
+    --shadow-sm: 0 4px 12px rgba(10, 30, 59, 0.06);
+    --shadow-md: 0 10px 30px rgba(10, 30, 59, 0.08);
+    --shadow-lg: 0 20px 50px rgba(10, 30, 59, 0.12);
+    --shadow-teal: 0 12px 36px rgba(0, 139, 122, 0.18);
 
     /* Layout & Radius */
     --radius-sm: 8px;
     --radius-md: 14px;
-    --radius-lg: 20px;
+    --radius-lg: 22px;
     --radius-full: 9999px;
-    --section-gap: 88px;
-    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --section-gap: 100px;
+    --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ─── Reset & Base ─── */
+/* ─── Base & Typography ─── */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -58,22 +62,28 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text-main);
+    font-family: 'DM Sans', 'Noto Sans Tamil', -apple-system, sans-serif;
+    color: var(--text-body);
     background-color: var(--bg-page);
-    line-height: 1.65;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
     color: var(--primary);
-    line-height: 1.25;
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+}
+
+.ta-text {
+    font-family: 'Noto Sans Tamil', sans-serif;
 }
 
 p {
-    color: var(--text-muted);
+    color: var(--text-body);
 }
 
 a {
@@ -90,57 +100,65 @@ img {
 section {
     padding: var(--section-gap) 0;
     position: relative;
+    width: 100%;
 }
 
-.container {
-    max-width: 1200px;
+/* ─── Full-Width Edge-to-Edge Container System ─── */
+.container,
+.container-wide {
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 clamp(24px, 5vw, 90px);
 }
 
-/* ─── Top Emergency Bar ─── */
+/* ─── 1. Top Emergency Ribbon ─── */
 .emergency-top {
-    background: var(--emergency);
+    background: linear-gradient(90deg, #B91C1C 0%, #DC2626 50%, #991B1B 100%);
     color: white;
-    font-size: 0.82rem;
+    font-size: 0.86rem;
     font-weight: 600;
     position: relative;
     z-index: 1001;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .emergency-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 7px 0;
-    gap: 12px;
+    padding: 9px 0;
+    gap: 16px;
     flex-wrap: wrap;
 }
 
 .emergency-left, .emergency-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     flex-wrap: wrap;
 }
 
 .emergency-tag {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 2px 10px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 3px 14px;
     border-radius: var(--radius-full);
-    font-size: 0.76rem;
+    font-size: 0.78rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
 }
 
 .emergency-num {
     color: white;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    border-bottom: 1px dotted rgba(255, 255, 255, 0.6);
+    gap: 7px;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.7);
     transition: var(--transition);
 }
 
@@ -150,23 +168,24 @@ section {
 }
 
 .emergency-sep {
-    opacity: 0.4;
+    opacity: 0.45;
 }
 
-/* ─── Main Header ─── */
+/* ─── 2. Main Navigation Header (Full Width Edge-to-Edge) ─── */
 header#site-header {
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 12px 0;
+    padding: 14px 0;
     transition: var(--transition);
+    width: 100%;
 }
 
 header#site-header.scrolled {
-    padding: 8px 0;
+    padding: 10px 0;
     box-shadow: var(--shadow-sm);
 }
 
@@ -174,29 +193,29 @@ header#site-header.scrolled {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 32px;
 }
 
 /* Brand Logo */
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     text-decoration: none;
     flex-shrink: 0;
 }
 
 .logo img {
-    height: 48px;
+    height: 54px;
     width: auto;
     transition: var(--transition);
 }
 
 header.scrolled .logo img {
-    height: 42px;
+    height: 46px;
 }
 
-/* Navigation */
+/* Navigation Links */
 #navbar {
     display: flex;
     align-items: center;
@@ -205,29 +224,30 @@ header.scrolled .logo img {
 #nav-links {
     display: flex;
     list-style: none;
-    gap: 6px;
+    gap: 10px;
     align-items: center;
 }
 
 #nav-links li a {
-    color: var(--text-main);
+    color: var(--text-dark);
     font-weight: 600;
-    font-size: 0.92rem;
-    padding: 8px 14px;
+    font-size: 0.96rem;
+    padding: 9px 18px;
     border-radius: var(--radius-sm);
     display: flex;
     flex-direction: column;
     align-items: center;
     line-height: 1.2;
     transition: var(--transition);
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 #nav-links li a .nav-ta {
-    font-size: 0.68rem;
-    font-family: 'Mukta Malar', sans-serif;
+    font-size: 0.72rem;
+    font-family: 'Noto Sans Tamil', sans-serif;
     color: var(--text-muted);
     font-weight: 500;
-    margin-top: 1px;
+    margin-top: 2px;
 }
 
 #nav-links li a:hover,
@@ -245,18 +265,18 @@ header.scrolled .logo img {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
     flex-shrink: 0;
 }
 
 .btn-icon-header {
-    width: 42px;
-    height: 42px;
-    border-radius: var(--radius-sm);
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     transition: var(--transition);
 }
 
@@ -270,7 +290,7 @@ header.scrolled .logo img {
     background: #16A34A;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+    box-shadow: 0 4px 14px rgba(22, 163, 74, 0.28);
 }
 
 .btn-call-header {
@@ -288,63 +308,64 @@ header.scrolled .logo img {
 .header-appt-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 9px;
     background: var(--teal);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: var(--radius-sm);
     font-weight: 700;
-    font-size: 0.88rem;
+    font-size: 0.94rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     white-space: nowrap;
     transition: var(--transition);
-    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 139, 122, 0.28);
 }
 
 .header-appt-btn:hover {
     background: var(--teal-dark);
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(13, 148, 136, 0.35);
+    box-shadow: 0 6px 22px rgba(0, 139, 122, 0.38);
 }
 
 .menu-toggle {
     display: none;
     background: #F1F5F9;
     border: 1px solid var(--border);
-    padding: 9px 12px;
+    padding: 10px 14px;
     border-radius: var(--radius-sm);
     color: var(--primary);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     transition: var(--transition);
 }
 
-/* ─── Buttons ─── */
+/* ─── Global Buttons ─── */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    padding: 13px 26px;
+    gap: 11px;
+    padding: 15px 32px;
     border-radius: var(--radius-md);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 1.02rem;
     cursor: pointer;
     border: 2px solid transparent;
     transition: var(--transition);
-    font-family: 'Outfit', 'Inter', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     text-align: center;
 }
 
 .btn-primary {
     background: var(--teal);
     color: white;
-    box-shadow: 0 4px 16px rgba(13, 148, 136, 0.25);
+    box-shadow: 0 4px 18px rgba(0, 139, 122, 0.3);
 }
 
 .btn-primary:hover {
     background: var(--teal-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.35);
+    box-shadow: 0 8px 26px rgba(0, 139, 122, 0.4);
 }
 
 .btn-outline-navy {
@@ -362,52 +383,43 @@ header.scrolled .logo img {
     box-shadow: var(--shadow-md);
 }
 
-.btn-emergency {
-    background: var(--emergency);
-    color: white;
-}
-
-.btn-emergency:hover {
-    background: #BE123C;
-    transform: translateY(-2px);
-}
-
-/* ─── Hero Section ─── */
+/* ─── 3. Hero Section (Expansive Edge-to-Edge) ─── */
 .hero {
-    padding: 70px 0 60px;
-    background: linear-gradient(145deg, #F0FDFA 0%, #F8FAFC 45%, #EFF6FF 100%);
+    padding: clamp(60px, 7vw, 96px) 0 clamp(50px, 6vw, 84px);
+    background: linear-gradient(135deg, #EEFAF8 0%, #F8FAFC 40%, #EFF6FF 100%);
     border-bottom: 1px solid var(--border);
+    width: 100%;
 }
 
 .hero-inner {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 48px;
+    grid-template-columns: 1.25fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
     align-items: center;
 }
 
 .hero-tagline {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 9px;
     background: var(--teal-light);
     color: var(--teal-dark);
     border: 1px solid var(--teal-border);
-    padding: 6px 16px;
+    padding: 8px 20px;
     border-radius: var(--radius-full);
     font-weight: 700;
-    font-size: 0.84rem;
+    font-size: 0.92rem;
     letter-spacing: 0.02em;
-    margin-bottom: 18px;
-    font-family: 'Mukta Malar', sans-serif;
+    margin-bottom: 24px;
+    font-family: 'Noto Sans Tamil', sans-serif;
 }
 
 .hero-content h2 {
-    font-size: 3.1rem;
+    font-size: clamp(2.6rem, 4.2vw, 4.2rem);
     font-weight: 800;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
     line-height: 1.15;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
 }
 
 .text-accent {
@@ -415,67 +427,70 @@ header.scrolled .logo img {
 }
 
 .hero-sub {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 30px;
-    color: var(--text-muted);
+    font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+    line-height: 1.8;
+    margin-bottom: 38px;
+    color: var(--text-body);
+    max-width: 95%;
 }
 
 .hero-btns {
     display: flex;
-    gap: 14px;
+    gap: 18px;
     flex-wrap: wrap;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
 }
 
 .hero-trust {
     display: flex;
-    gap: 20px;
+    gap: clamp(20px, 3vw, 36px);
     flex-wrap: wrap;
-    padding-top: 18px;
-    border-top: 1px solid rgba(226, 232, 240, 0.8);
+    padding-top: 26px;
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
 }
 
 .trust-item {
     display: flex;
     align-items: center;
-    gap: 7px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-main);
+    gap: 9px;
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .trust-item i {
     color: var(--teal);
-    font-size: 1rem;
+    font-size: 1.15rem;
 }
 
 .hero-image-wrap {
     position: relative;
+    width: 100%;
 }
 
 .hero-image-wrap img {
     width: 100%;
-    height: 420px;
+    height: clamp(420px, 34vw, 560px);
     object-fit: cover;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
-    border: 4px solid white;
+    border: 5px solid white;
 }
 
 .hero-floating-badge {
     position: absolute;
-    bottom: -18px;
-    left: -18px;
+    bottom: -20px;
+    left: -20px;
     background: white;
-    padding: 14px 20px;
+    padding: 18px 26px;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
     border: 1px solid var(--border);
-    animation: floatBadge 3.5s ease-in-out infinite alternate;
+    animation: floatBadge 3.8s ease-in-out infinite alternate;
 }
 
 @keyframes floatBadge {
@@ -484,32 +499,32 @@ header.scrolled .logo img {
 }
 
 .floating-icon {
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
     background: var(--emergency-light);
     color: var(--emergency);
-    border-radius: 10px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .floating-text h5 {
-    font-size: 0.95rem;
+    font-size: 1.08rem;
     font-weight: 800;
     color: var(--primary);
 }
 
 .floating-text p {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     margin: 0;
     color: var(--text-muted);
 }
 
-/* ─── Quick Services Action Strip ─── */
+/* ─── 4. Quick Services Action Bar (Full Width) ─── */
 .quick-services {
-    margin-top: -30px;
+    margin-top: -42px;
     position: relative;
     z-index: 10;
     padding: 0;
@@ -518,38 +533,38 @@ header.scrolled .logo img {
 .quick-services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+    gap: clamp(16px, 2vw, 28px);
 }
 
 .quick-card {
     background: white;
-    padding: 22px 20px;
+    padding: 28px 24px;
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
     display: flex;
     align-items: flex-start;
-    gap: 14px;
+    gap: 18px;
     transition: var(--transition);
     text-decoration: none;
 }
 
 .quick-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-teal);
     border-color: var(--teal);
 }
 
 .quick-card-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
     background: var(--teal-light);
     color: var(--teal);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     flex-shrink: 0;
     transition: var(--transition);
 }
@@ -560,34 +575,37 @@ header.scrolled .logo img {
 }
 
 .quick-card-info h4 {
-    font-size: 0.98rem;
-    font-weight: 700;
+    font-size: 1.12rem;
+    font-weight: 800;
     color: var(--primary);
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 .quick-card-info p {
-    font-size: 0.8rem;
+    font-size: 0.88rem;
     margin: 0;
+    color: var(--text-muted);
+    font-family: 'Noto Sans Tamil', sans-serif;
 }
 
-/* ─── Stats Bar ─── */
+/* ─── 5. Clinical Stats Section (Edge to Edge) ─── */
 .stats-section {
-    background: var(--primary);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
     color: white;
-    padding: 42px 0;
+    padding: 60px 0;
+    width: 100%;
 }
 
 .stats-inner {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 32px;
 }
 
 .stat-item {
     text-align: center;
-    padding: 0 16px;
-    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .stat-item:last-child {
@@ -595,126 +613,129 @@ header.scrolled .logo img {
 }
 
 .stat-item h4 {
-    font-size: 2.7rem;
+    font-size: clamp(2.8rem, 3.8vw, 3.8rem);
     font-weight: 800;
     color: #38BDF8;
-    margin-bottom: 2px;
+    margin-bottom: 6px;
     line-height: 1;
 }
 
 .stat-item p {
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 600;
-    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 700;
+    font-size: 1.1rem;
     line-height: 1.4;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .stat-item p span {
     display: block;
-    font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-family: 'Mukta Malar', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: 'Noto Sans Tamil', sans-serif;
     font-weight: 400;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
-/* ─── Section Headers ─── */
+/* ─── Section Header Standards ─── */
 .section-title {
     text-align: center;
-    max-width: 720px;
-    margin: 0 auto 52px;
+    max-width: 900px;
+    margin: 0 auto 64px;
 }
 
 .section-badge {
     display: inline-block;
     background: var(--teal-light);
     color: var(--teal-dark);
-    font-size: 0.78rem;
+    font-size: 0.86rem;
     font-weight: 700;
-    padding: 5px 14px;
+    padding: 7px 18px;
     border-radius: var(--radius-full);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     border: 1px solid var(--teal-border);
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .section-title h3 {
-    font-size: 2.3rem;
+    font-size: clamp(2.2rem, 3.2vw, 3.1rem);
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     color: var(--primary);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .section-title p {
-    font-size: 1rem;
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
     color: var(--text-muted);
+    line-height: 1.7;
 }
 
-/* ─── About Section ─── */
+/* ─── 6. About Section ─── */
 .about-section {
     background: white;
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 56px;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: clamp(48px, 6vw, 88px);
     align-items: center;
 }
 
 .about-text h4 {
-    font-size: 1.6rem;
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
     font-weight: 800;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     color: var(--primary);
 }
 
 .about-text p {
-    margin-bottom: 18px;
-    font-size: 1rem;
-    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.08rem;
+    line-height: 1.8;
 }
 
 .about-checklist {
     list-style: none;
-    margin: 24px 0 30px;
+    margin: 32px 0 38px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px 18px;
+    gap: 16px 28px;
 }
 
 .about-checklist li {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.92rem;
+    gap: 12px;
+    font-size: 1.02rem;
     font-weight: 600;
-    color: var(--text-main);
+    color: var(--text-dark);
 }
 
 .about-checklist li i {
     color: var(--teal);
-    font-size: 1.1rem;
+    font-size: 1.25rem;
 }
 
 .about-cards-stack {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 22px;
 }
 
 .about-feature-card {
     background: var(--bg-page);
-    padding: 20px 22px;
+    padding: 26px 28px;
     border-radius: var(--radius-md);
-    border-left: 4px solid var(--teal);
+    border-left: 5px solid var(--teal);
     border-top: 1px solid var(--border);
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     display: flex;
-    gap: 16px;
+    gap: 20px;
     align-items: flex-start;
     transition: var(--transition);
 }
@@ -722,29 +743,29 @@ header.scrolled .logo img {
 .about-feature-card:hover {
     background: white;
     box-shadow: var(--shadow-md);
-    transform: translateX(4px);
+    transform: translateX(6px);
 }
 
 .about-card-icon {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--teal);
     margin-top: 2px;
 }
 
 .about-feature-card h5 {
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.18rem;
+    font-weight: 800;
     color: var(--primary);
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .about-feature-card p {
-    font-size: 0.88rem;
+    font-size: 0.94rem;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-/* ─── Specialties Grid ─── */
+/* ─── 7. Specialties Full Width Grid ─── */
 .specialties-section {
     background: var(--bg-page);
 }
@@ -752,12 +773,12 @@ header.scrolled .logo img {
 .card-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
+    gap: clamp(20px, 2.4vw, 32px);
 }
 
 .specialty-card {
     background: white;
-    padding: 28px 22px;
+    padding: 34px 28px;
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-xs);
@@ -769,21 +790,21 @@ header.scrolled .logo img {
 
 .specialty-card:hover {
     border-color: var(--teal);
-    box-shadow: var(--shadow-hover);
-    transform: translateY(-5px);
+    box-shadow: var(--shadow-teal);
+    transform: translateY(-8px);
 }
 
 .specialty-icon-box {
-    width: 58px;
-    height: 58px;
+    width: 68px;
+    height: 68px;
     background: var(--teal-light);
-    border-radius: 14px;
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size: 1.85rem;
     color: var(--teal);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     transition: var(--transition);
 }
 
@@ -794,40 +815,42 @@ header.scrolled .logo img {
 
 .specialty-badge {
     display: inline-block;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     font-weight: 700;
     color: var(--teal-dark);
     background: var(--teal-light);
-    padding: 3px 10px;
+    padding: 4px 12px;
     border-radius: var(--radius-full);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     width: fit-content;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .specialty-card h4 {
-    font-size: 1.05rem;
+    font-size: 1.18rem;
     font-weight: 800;
     color: var(--primary);
-    margin-bottom: 4px;
-    font-family: 'Mukta Malar', sans-serif;
-    line-height: 1.35;
+    margin-bottom: 6px;
+    font-family: 'Noto Sans Tamil', sans-serif;
+    line-height: 1.4;
 }
 
 .specialty-card h5 {
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-size: 0.98rem;
+    font-weight: 700;
     color: var(--text-muted);
-    margin-bottom: 10px;
-    font-family: 'Inter', sans-serif;
+    margin-bottom: 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .specialty-card p {
-    font-size: 0.84rem;
-    line-height: 1.55;
+    font-size: 0.92rem;
+    line-height: 1.65;
     margin-top: auto;
+    color: var(--text-body);
 }
 
-/* ─── Doctors Section ─── */
+/* ─── 8. Specialist Doctors Full Width Grid ─── */
 .doctors-section {
     background: white;
 }
@@ -835,7 +858,7 @@ header.scrolled .logo img {
 .doctors-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: clamp(22px, 2.5vw, 34px);
 }
 
 .doctor-card {
@@ -851,12 +874,12 @@ header.scrolled .logo img {
 
 .doctor-card:hover {
     box-shadow: var(--shadow-lg);
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     border-color: var(--teal-border);
 }
 
 .doctor-img-wrap {
-    height: 250px;
+    height: 300px;
     background: #EDF2F7;
     overflow: hidden;
     position: relative;
@@ -871,67 +894,68 @@ header.scrolled .logo img {
 }
 
 .doctor-card:hover .doctor-img-wrap img {
-    transform: scale(1.04);
+    transform: scale(1.05);
 }
 
 .doctor-exp-badge {
     position: absolute;
-    bottom: 12px;
-    left: 12px;
-    background: rgba(15, 39, 68, 0.88);
-    backdrop-filter: blur(4px);
+    bottom: 16px;
+    left: 16px;
+    background: rgba(10, 30, 59, 0.92);
+    backdrop-filter: blur(6px);
     color: white;
-    font-size: 0.74rem;
+    font-size: 0.82rem;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 6px 14px;
     border-radius: var(--radius-full);
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .doctor-info {
-    padding: 22px 20px 20px;
+    padding: 26px 24px 24px;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
 .doctor-info h4 {
-    font-size: 1.18rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: var(--primary);
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .doctor-qual {
-    font-size: 0.8rem;
+    font-size: 0.86rem;
     color: var(--text-light);
-    font-weight: 500;
-    margin-bottom: 8px;
+    font-weight: 600;
+    margin-bottom: 12px;
 }
 
 .doctor-spec {
-    font-size: 0.88rem;
+    font-size: 0.96rem;
     font-weight: 700;
     color: var(--teal);
-    line-height: 1.4;
-    margin-bottom: 16px;
+    line-height: 1.45;
+    margin-bottom: 18px;
     display: flex;
     align-items: flex-start;
-    gap: 6px;
+    gap: 8px;
 }
 
 .doctor-spec i {
-    margin-top: 3px;
-    font-size: 0.85rem;
+    margin-top: 4px;
+    font-size: 0.95rem;
 }
 
 .doctor-timings {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.78rem;
+    gap: 8px;
+    font-size: 0.86rem;
     color: var(--text-muted);
-    margin-bottom: 18px;
-    padding: 6px 10px;
+    margin-bottom: 22px;
+    padding: 8px 14px;
     background: var(--bg-page);
     border-radius: var(--radius-sm);
 }
@@ -941,15 +965,16 @@ header.scrolled .logo img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     width: 100%;
-    padding: 10px;
+    padding: 13px;
     border-radius: var(--radius-sm);
     background: var(--teal-light);
     color: var(--teal-dark);
     font-weight: 700;
-    font-size: 0.88rem;
+    font-size: 0.96rem;
     border: 1px solid var(--teal-border);
+    font-family: 'Plus Jakarta Sans', sans-serif;
     transition: var(--transition);
 }
 
@@ -958,65 +983,67 @@ header.scrolled .logo img {
     color: white;
 }
 
-/* ─── Facilities Grid ─── */
+/* ─── 9. Facilities Full Width Grid ─── */
 .facilities-section {
     background: var(--bg-page);
 }
 
 .facility-card {
     background: white;
-    padding: 24px 20px;
+    padding: 30px 26px;
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
     display: flex;
     align-items: flex-start;
-    gap: 16px;
+    gap: 20px;
     transition: var(--transition);
 }
 
 .facility-card:hover {
     box-shadow: var(--shadow-md);
     border-color: var(--teal);
-    transform: translateY(-3px);
+    transform: translateY(-5px);
 }
 
 .facility-icon-circle {
-    width: 52px;
-    height: 52px;
-    border-radius: 12px;
+    width: 62px;
+    height: 62px;
+    border-radius: 16px;
     background: var(--teal-light);
     color: var(--teal);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4rem;
+    font-size: 1.65rem;
     flex-shrink: 0;
 }
 
 .facility-info h4 {
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-size: 1.18rem;
+    font-weight: 800;
     color: var(--primary);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .facility-info p {
-    font-size: 0.84rem;
+    font-size: 0.92rem;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
+    color: var(--text-body);
 }
 
-/* ─── Appointment Booking Section ─── */
+/* ─── 10. Appointment Booking Section (Full Width Split) ─── */
 .booking-section-wrap {
-    background: linear-gradient(135deg, var(--primary) 0%, #153359 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%);
     color: white;
-    padding: 80px 0;
+    padding: clamp(70px, 8vw, 110px) 0;
+    width: 100%;
 }
 
 .booking-grid {
     display: grid;
-    grid-template-columns: 1fr 1.15fr;
-    gap: 52px;
+    grid-template-columns: 1.1fr 1.25fr;
+    gap: clamp(48px, 6vw, 90px);
     align-items: center;
 }
 
@@ -1027,139 +1054,144 @@ header.scrolled .logo img {
 .booking-badge-light {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(13, 148, 136, 0.25);
+    gap: 9px;
+    background: rgba(0, 139, 122, 0.28);
     color: #5EEAD4;
-    padding: 6px 16px;
+    padding: 8px 20px;
     border-radius: var(--radius-full);
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 20px;
-    border: 1px solid rgba(94, 234, 212, 0.35);
+    margin-bottom: 24px;
+    border: 1px solid rgba(94, 234, 212, 0.4);
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .booking-content-side h3 {
-    font-size: 2.6rem;
+    font-size: clamp(2.4rem, 3.6vw, 3.4rem);
     font-weight: 800;
     color: white;
     line-height: 1.2;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
+    font-family: 'Noto Sans Tamil', sans-serif;
 }
 
 .booking-content-side p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 1.02rem;
-    line-height: 1.7;
-    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.12rem;
+    line-height: 1.8;
+    margin-bottom: 38px;
 }
 
 .booking-perks {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin-bottom: 32px;
+    gap: 18px;
+    margin-bottom: 40px;
 }
 
 .booking-perk-item {
     display: flex;
     align-items: center;
-    gap: 14px;
-    background: rgba(255, 255, 255, 0.08);
-    padding: 12px 18px;
+    gap: 18px;
+    background: rgba(255, 255, 255, 0.09);
+    padding: 16px 22px;
     border-radius: var(--radius-sm);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .booking-perk-item i {
     color: #38BDF8;
-    font-size: 1.25rem;
+    font-size: 1.45rem;
 }
 
 .booking-perk-item span {
-    font-size: 0.92rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 
 .booking-direct-call {
     display: inline-flex;
     align-items: center;
-    gap: 16px;
-    background: rgba(225, 29, 72, 0.25);
-    border: 1px solid rgba(225, 29, 72, 0.5);
-    padding: 14px 22px;
+    gap: 20px;
+    background: rgba(220, 38, 38, 0.28);
+    border: 1px solid rgba(220, 38, 38, 0.55);
+    padding: 18px 28px;
     border-radius: var(--radius-md);
     color: white;
     transition: var(--transition);
 }
 
 .booking-direct-call:hover {
-    background: rgba(225, 29, 72, 0.4);
+    background: rgba(220, 38, 38, 0.45);
     transform: translateY(-2px);
 }
 
 .booking-direct-call i {
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: #FDA4AF;
 }
 
 .booking-direct-call div small {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     text-transform: uppercase;
     color: #FECDD3;
-    font-weight: 600;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .booking-direct-call div strong {
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     letter-spacing: 0.02em;
 }
 
 /* Booking Form Card */
 .booking-form-card {
     background: white;
-    padding: 36px 32px;
+    padding: clamp(32px, 4.5vw, 48px) clamp(28px, 4vw, 42px);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
-    color: var(--text-main);
+    color: var(--text-dark);
 }
 
 .form-header {
-    margin-bottom: 24px;
-    padding-bottom: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
     border-bottom: 1px solid var(--border);
 }
 
 .form-header h4 {
-    font-size: 1.35rem;
+    font-size: 1.55rem;
     font-weight: 800;
     color: var(--primary);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .form-header p {
-    font-size: 0.85rem;
+    font-size: 0.94rem;
     margin: 0;
+    color: var(--text-muted);
 }
 
 .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 20px;
 }
 
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 
 .form-group label {
     display: block;
-    font-size: 0.84rem;
+    font-size: 0.92rem;
     font-weight: 700;
     color: var(--primary);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .form-input-box {
@@ -1170,22 +1202,22 @@ header.scrolled .logo img {
 
 .form-input-box i {
     position: absolute;
-    left: 14px;
+    left: 16px;
     color: var(--text-light);
-    font-size: 1rem;
+    font-size: 1.15rem;
     pointer-events: none;
 }
 
 .form-input-box input,
 .form-input-box select {
     width: 100%;
-    padding: 12px 14px 12px 42px;
+    padding: 14px 18px 14px 48px;
     border-radius: var(--radius-sm);
     border: 1.5px solid var(--border);
     background: var(--bg-page);
-    font-size: 0.94rem;
-    font-family: inherit;
-    color: var(--text-main);
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-dark);
     transition: var(--transition);
 }
 
@@ -1194,40 +1226,40 @@ header.scrolled .logo img {
     outline: none;
     background: white;
     border-color: var(--teal);
-    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+    box-shadow: 0 0 0 3px rgba(0, 139, 122, 0.16);
 }
 
 .btn-form-submit {
     width: 100%;
-    padding: 15px;
-    font-size: 1rem;
+    padding: 17px;
+    font-size: 1.1rem;
     border-radius: var(--radius-sm);
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
-/* ─── Contact & Location Section ─── */
+/* ─── 11. Contact & Location (Full Width Split) ─── */
 .contact-section {
     background: white;
 }
 
 .contact-layout-grid {
     display: grid;
-    grid-template-columns: 1.05fr 1.15fr;
-    gap: 40px;
+    grid-template-columns: 1.08fr 1.18fr;
+    gap: clamp(40px, 5vw, 72px);
     align-items: stretch;
 }
 
 .contact-info-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
 }
 
 .contact-card-item {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
-    padding: 18px 20px;
+    gap: 20px;
+    padding: 22px 26px;
     background: var(--bg-page);
     border-radius: var(--radius-md);
     border: 1px solid var(--border);
@@ -1241,34 +1273,34 @@ header.scrolled .logo img {
 }
 
 .contact-card-icon {
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
     background: var(--teal-light);
     color: var(--teal);
-    border-radius: 10px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.45rem;
     flex-shrink: 0;
 }
 
 .contact-card-item h5 {
-    font-size: 0.95rem;
-    font-weight: 700;
+    font-size: 1.1rem;
+    font-weight: 800;
     color: var(--primary);
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .contact-card-item p {
-    font-size: 0.9rem;
+    font-size: 0.98rem;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .contact-card-item a {
     color: var(--teal);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .contact-card-item a:hover {
@@ -1280,57 +1312,59 @@ header.scrolled .logo img {
     overflow: hidden;
     border: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
-    min-height: 420px;
+    min-height: 480px;
+    width: 100%;
 }
 
 .map-embed-box iframe {
     width: 100%;
     height: 100%;
-    min-height: 420px;
+    min-height: 480px;
     border: 0;
 }
 
-/* ─── Footer ─── */
+/* ─── 12. Full Width Footer ─── */
 footer#site-footer {
     background: var(--primary-dark);
     color: white;
-    padding: 70px 0 0;
+    padding: 84px 0 0;
+    width: 100%;
 }
 
 .footer-top-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1.1fr 1.2fr;
-    gap: 40px;
-    padding-bottom: 50px;
+    grid-template-columns: 1.4fr 1fr 1.15fr 1.25fr;
+    gap: clamp(32px, 4vw, 56px);
+    padding-bottom: 60px;
 }
 
 .footer-brand img {
-    height: 48px;
-    margin-bottom: 16px;
+    height: 56px;
+    margin-bottom: 20px;
 }
 
 .footer-brand p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.88rem;
-    line-height: 1.7;
-    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.96rem;
+    line-height: 1.8;
+    margin-bottom: 24px;
 }
 
 .footer-social-links {
     display: flex;
-    gap: 10px;
+    gap: 14px;
 }
 
 .footer-social-links a {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     background: rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.15rem;
     transition: var(--transition);
 }
 
@@ -1341,10 +1375,10 @@ footer#site-footer {
 }
 
 .footer-col h5 {
-    font-size: 0.95rem;
+    font-size: 1.08rem;
     font-weight: 800;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
 }
@@ -1353,15 +1387,15 @@ footer#site-footer {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 13px;
 }
 
 .footer-links-list li a {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.96rem;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     transition: var(--transition);
 }
 
@@ -1371,29 +1405,29 @@ footer#site-footer {
 }
 
 .footer-links-list li a i {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--teal);
 }
 
 .footer-emergency-box {
-    background: rgba(225, 29, 72, 0.18);
-    border: 1px solid rgba(225, 29, 72, 0.35);
-    padding: 14px 18px;
+    background: rgba(220, 38, 38, 0.2);
+    border: 1px solid rgba(220, 38, 38, 0.4);
+    padding: 18px 22px;
     border-radius: var(--radius-sm);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
 .footer-emergency-box i {
-    font-size: 1.6rem;
+    font-size: 1.85rem;
     color: #FDA4AF;
 }
 
 .footer-emergency-box div small {
     display: block;
-    font-size: 0.74rem;
+    font-size: 0.78rem;
     color: #FECDD3;
     text-transform: uppercase;
     font-weight: 700;
@@ -1402,12 +1436,12 @@ footer#site-footer {
 .footer-emergency-box div a {
     color: white;
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .footer-bottom-bar {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 22px 0;
+    padding: 26px 0;
 }
 
 .footer-bottom-inner {
@@ -1415,26 +1449,26 @@ footer#site-footer {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
-    font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.5);
+    gap: 16px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* ─── Floating WhatsApp Button ─── */
 .whatsapp-float {
     position: fixed;
-    bottom: 88px;
-    right: 24px;
+    bottom: 90px;
+    right: 32px;
     background: #25D366;
     color: white;
-    width: 54px;
-    height: 54px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.75rem;
-    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+    font-size: 2rem;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.48);
     z-index: 998;
     transition: var(--transition);
 }
@@ -1464,9 +1498,9 @@ footer#site-footer {
     align-items: center;
     justify-content: center;
     gap: 3px;
-    padding: 10px 6px;
-    color: var(--text-main);
-    font-size: 0.72rem;
+    padding: 11px 6px;
+    color: var(--text-dark);
+    font-size: 0.74rem;
     font-weight: 700;
     border-right: 1px solid var(--border);
     transition: var(--transition);
@@ -1477,7 +1511,7 @@ footer#site-footer {
 }
 
 .mobile-action-btn i {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
 }
 
 .mob-btn-call {
@@ -1497,16 +1531,8 @@ footer#site-footer {
    RESPONSIVE DESIGN BREAKPOINTS
    ════════════════════════════════════════════════════════ */
 
-/* Tablet (1024px and below) */
-@media (max-width: 1024px) {
-    :root {
-        --section-gap: 68px;
-    }
-
-    .hero-content h2 {
-        font-size: 2.5rem;
-    }
-
+/* Laptop / Desktop (1280px and below) */
+@media (max-width: 1280px) {
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1515,17 +1541,33 @@ footer#site-footer {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .facilities-grid {
+    .quick-services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .quick-services-grid {
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+    :root {
+        --section-gap: 72px;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .facilities-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .booking-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 44px;
     }
 
     .contact-layout-grid {
@@ -1534,30 +1576,30 @@ footer#site-footer {
 
     .footer-top-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 36px;
+        gap: 40px;
     }
 }
 
 /* Mobile (768px and below) */
 @media (max-width: 768px) {
     :root {
-        --section-gap: 52px;
+        --section-gap: 56px;
     }
 
     /* Top Emergency Bar */
     .emergency-inner {
         justify-content: center;
         text-align: center;
-        font-size: 0.78rem;
+        font-size: 0.8rem;
     }
 
     /* Header & Mobile Drawer */
     header#site-header {
-        padding: 10px 0;
+        padding: 12px 0;
     }
 
     .logo img {
-        height: 40px;
+        height: 44px;
     }
 
     .header-appt-btn,
@@ -1578,7 +1620,7 @@ footer#site-footer {
         background: #FFFFFF;
         border-top: 1px solid var(--border);
         box-shadow: var(--shadow-lg);
-        padding: 16px 20px;
+        padding: 18px 24px;
         z-index: 1000;
     }
 
@@ -1589,12 +1631,12 @@ footer#site-footer {
     #nav-links {
         flex-direction: column;
         align-items: stretch;
-        gap: 6px;
+        gap: 8px;
     }
 
     #nav-links li a {
-        padding: 12px 16px;
-        font-size: 1rem;
+        padding: 14px 18px;
+        font-size: 1.05rem;
         flex-direction: row;
         justify-content: space-between;
         border-bottom: 1px solid var(--border);
@@ -1606,31 +1648,26 @@ footer#site-footer {
 
     /* Hero Mobile */
     .hero {
-        padding: 40px 0;
-    }
-
-    .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        padding: 44px 0;
     }
 
     .hero-content h2 {
-        font-size: 2rem;
+        font-size: 2.1rem;
     }
 
     .hero-image-wrap img {
-        height: 260px;
+        height: 280px;
     }
 
     .hero-floating-badge {
-        bottom: -12px;
-        left: 12px;
-        padding: 10px 14px;
+        bottom: -14px;
+        left: 14px;
+        padding: 12px 16px;
     }
 
     /* Quick Cards Mobile */
     .quick-services {
-        margin-top: 20px;
+        margin-top: 24px;
     }
 
     .quick-services-grid {
@@ -1640,7 +1677,7 @@ footer#site-footer {
     /* Stats Mobile */
     .stats-inner {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px 10px;
+        gap: 24px 12px;
     }
 
     .stat-item {
@@ -1648,13 +1685,13 @@ footer#site-footer {
     }
 
     .stat-item h4 {
-        font-size: 2.1rem;
+        font-size: 2.2rem;
     }
 
     /* About Mobile */
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 36px;
     }
 
     .about-checklist {
@@ -1664,12 +1701,12 @@ footer#site-footer {
     /* Doctors Mobile */
     .doctors-grid {
         grid-template-columns: 1fr;
-        max-width: 380px;
+        max-width: 400px;
         margin: 0 auto;
     }
 
     .doctor-img-wrap {
-        height: 260px;
+        height: 280px;
     }
 
     /* Specialties & Facilities Mobile */
@@ -1683,7 +1720,7 @@ footer#site-footer {
 
     /* Form Mobile */
     .booking-form-card {
-        padding: 24px 18px;
+        padding: 26px 20px;
     }
 
     .form-grid-2 {
@@ -1694,13 +1731,13 @@ footer#site-footer {
     /* Footer Mobile */
     .footer-top-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 34px;
     }
 
     .footer-bottom-inner {
         flex-direction: column;
         text-align: center;
-        gap: 8px;
+        gap: 10px;
     }
 
     /* Mobile Sticky Bar Display */
@@ -1710,14 +1747,14 @@ footer#site-footer {
 
     /* Reposition Floating WhatsApp above bottom bar */
     .whatsapp-float {
-        bottom: 74px;
+        bottom: 76px;
         right: 18px;
-        width: 48px;
-        height: 48px;
-        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
     }
 
     body {
-        padding-bottom: 60px;
+        padding-bottom: 64px;
     }
 }
