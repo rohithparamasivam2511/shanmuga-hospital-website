@@ -59,6 +59,9 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 body {
@@ -69,6 +72,14 @@ body {
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+main {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -101,6 +112,8 @@ section {
     padding: var(--section-gap) 0;
     position: relative;
     width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* ─── Full-Width Edge-to-Edge Container System ─── */
@@ -109,7 +122,21 @@ section {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 clamp(24px, 5vw, 90px);
+    padding: 0 clamp(20px, 4vw, 80px);
+    box-sizing: border-box;
+}
+
+/* ─── Locked Sticky Top Bar (Emergency Ribbon + Navigation Header) ─── */
+.site-top-wrapper {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #FFFFFF;
+    box-shadow: 0 4px 18px rgba(10, 30, 59, 0.08);
+    transition: var(--transition);
 }
 
 /* ─── 1. Top Emergency Ribbon ─── */
@@ -119,8 +146,8 @@ section {
     font-size: 0.86rem;
     font-weight: 600;
     position: relative;
-    z-index: 1001;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    width: 100%;
 }
 
 .emergency-inner {
@@ -171,15 +198,13 @@ section {
     opacity: 0.45;
 }
 
-/* ─── 2. Main Navigation Header (Full Width Edge-to-Edge) ─── */
+/* ─── 2. Main Navigation Header ─── */
 header#site-header {
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 14px 0;
+    position: relative;
+    padding: 12px 0;
     transition: var(--transition);
     width: 100%;
 }
@@ -1644,6 +1669,14 @@ footer#site-footer {
 @media (max-width: 768px) {
     :root {
         --section-gap: 48px;
+    }
+
+    .container,
+    .container-wide {
+        padding: 0 16px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     /* ── Compact & Sleek Top Emergency Ribbon on Mobile ── */
